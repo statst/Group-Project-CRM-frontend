@@ -8,20 +8,23 @@ function Users(props) {
     const [error, setError] = useState(false);
 
     useEffect(() => {
-        // load the movies when the component is mounted
-        fetch(`${APIURL}/api/users`)
+        fetchMyApi();
+    }, []);
+
+    async function fetchMyApi() {
+        const url = `${APIURL}/api/users`;
+        await fetch(url)
             .then((response) => response.json())
             .then((data) => {
                 console.log(data);
-                // Update state with successful movie data
+
                 setUsers(data);
             })
             .catch(() => {
-                // Update the state if there was an error
-                // so we can give feedback to the user!
                 setError(true);
             });
-    }, []);
+    }
+
     if (error) {
         return <div>Sorry, there was a problem getting the users</div>;
     }
@@ -43,34 +46,5 @@ function Users(props) {
         </div>
     );
 }
-
-// function Users(props) {
-//     console.log(props.users);
-//     return (
-//         <div>
-//             <h1>Users</h1>
-//             {props.users &&
-//                 props.users.map((user) => {
-//                     return (
-//                         <div key={user._id} className='container'>
-//                             <p>{user.firstname}</p>
-//                             <p>{user.lastname}</p>
-//                             <p>{user.email}</p>
-//                             {/* <Table responsive ="sm">
-// 								<thead>
-// 									<tr>
-// 										<th>#</th>
-// 										<th>{user.firstname}</th>
-// 										<th>{user.lastname}</th>
-// 										<th>{user.email}</th>
-// 									</tr>
-// 								</thead>
-// 							</Table> */}
-//                         </div>
-//                     );
-//                 })}
-//         </div>
-//     );
-// }
 
 export default Users;
