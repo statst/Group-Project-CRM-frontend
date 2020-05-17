@@ -10,6 +10,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
+import AddUser from './AddUser'
 
 const columns = [
     {id: 'firstname', label: 'First Name', minWidth: 170},
@@ -72,51 +73,58 @@ function Users(props) {
     }
 
     return (
-        <Paper className={classes.root}>
-            <TableContainer className={classes.container}>
-                <Table stickyHeader aria-label='sticky table'>
-                    <TableHead>
-                        <TableRow>
-                            {columns.map((column) => (
-                                <TableCell key={column.id} align={column.align} style={{minWidth: column.minWidth}}>
-                                    {column.label}
-                                </TableCell>
-                            ))}
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => {
-                            return (
-                                <TableRow hover role='checkbox' tabIndex={-1} key={user._id}>
-                                    {columns.map((column) => {
-                                        const value = user[column.id];
-                                        return (
-                                            <TableCell key={column.id} align={column.align}>
-                                                {column.format && typeof value === 'number' ? (
-                                                    column.format(value)
-                                                ) : (
-                                                    value
-                                                )}
-                                            </TableCell>
-                                        );
-                                    })}
-                                </TableRow>
-                            );
-                        })}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <TablePagination
-                rowsPerPageOptions={[10, 25, 100]}
-                component='div'
-                count={users.length}
-                rowsPerPage={rowsPerPage}
-                page={page}
-                onChangePage={handleChangePage}
-                onChangeRowsPerPage={handleChangeRowsPerPage}
-            />
-        </Paper>
-    );
+			<Paper className={classes.root}>
+				<TableContainer className={classes.container}>
+					<Table stickyHeader aria-label='sticky table'>
+						<TableHead>
+							<TableRow>
+								{columns.map((column) => (
+									<TableCell
+										key={column.id}
+										align={column.align}
+										style={{ minWidth: column.minWidth }}>
+										{column.label}
+									</TableCell>
+								))}
+							</TableRow>
+						</TableHead>
+						<TableBody>
+							{users
+								.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+								.map((user) => {
+									return (
+										<TableRow
+											hover
+											role='checkbox'
+											tabIndex={-1}
+											key={user._id}>
+											{columns.map((column) => {
+												const value = user[column.id];
+												return (
+													<TableCell key={column.id} align={column.align}>
+														{column.format && typeof value === 'number'
+															? column.format(value)
+															: value}
+													</TableCell>
+												);
+											})}
+										</TableRow>
+									);
+								})}
+						</TableBody>
+					</Table>
+				</TableContainer>
+				<TablePagination
+					rowsPerPageOptions={[10, 25, 100]}
+					component='div'
+					count={users.length}
+					rowsPerPage={rowsPerPage}
+					page={page}
+					onChangePage={handleChangePage}
+					onChangeRowsPerPage={handleChangeRowsPerPage}
+				/>
+			</Paper>
+		);
 }
 
 export default Users;
