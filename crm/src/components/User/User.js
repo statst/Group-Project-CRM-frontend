@@ -67,8 +67,6 @@ function Users(props) {
         return <div>Sorry, there was a problem getting the users</div>;
     }
 
-    // Check if we have our movies
-    // Display "Loading..." if not
     if (users.length === 0) {
         return <div>Loading...</div>;
     }

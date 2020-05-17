@@ -6,16 +6,22 @@ import Clients from './components/Client/Client';
 import clientsSeed from './Data/clientsSeed.json';
 import Users from './components/User/User';
 import usersSeed from './Data/usersSeed.json';
+import SignUp from './components/Password/SignUp'
+import SignIn from './components/Password/SignIn';
+import Footer from './components/Footer/Footer';
+
 
 import {BrowserRouter, Route} from 'react-router-dom';
 
 const App = () => (
-    <div>
-        <NavBar />
-        <main>
-            <Route exact path='/users' component={Users} />
-        </main>
-    </div>
+	<div>
+		<NavBar />
+		<main>
+			<Route exact path='/users' component={Users} />
+			<Route exact path='/signup' component={SignUp} />
+			<Route exact path='/signin' component={SignIn} />
+		</main>
+	</div>
 );
 
 // class App extends Component {
