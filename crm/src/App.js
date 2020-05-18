@@ -14,7 +14,7 @@ import Footer from './components/Footer/Footer';
 import ClientDetails from './components/Client/ClientDetails';
 import ClientEdit from './components/Client/ClientEdit';
 import ClientCreate from './components/Client/ClientCreate';
-
+import ContactForm from './components/Form/ContactForm'
 import {BrowserRouter, Route} from 'react-router-dom';
 
 const App = () => (
@@ -32,6 +32,7 @@ const App = () => (
 			<Route exact path='/api/clients/create' component={ClientCreate} />
 			<Route exact path='/signup' component={SignUp} />
 			<Route exact path='/signin' component={SignIn} />
+			<Route exact path='/contact' component={ContactForm} />
 		</main>
 	</div>
 );
