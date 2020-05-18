@@ -7,7 +7,7 @@ const UserCreate = () => {
 	const initialUserState = {
 		firstname: '',
 		lastname: '',
-		email: '',
+		email: ''
 	};
 	const [user, setUser] = useState(initialUserState);
 	const [createdId, setCreatedId] = useState(null);

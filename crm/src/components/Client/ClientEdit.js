@@ -13,7 +13,6 @@ const ClientEdit = ({match}) => {
         fetch(url).then((response) => response.json()).then(setClient).catch(() => {
             // Update the state if there was an error
             // so we can give feedback to the user!
-
             setError(true);
         });
     }, []);

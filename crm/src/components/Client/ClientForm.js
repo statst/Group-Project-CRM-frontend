@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const ClientForm = ({client, handleSubmit, handleChange}) => {
     return (
@@ -14,6 +15,7 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
                         value={client.email}
                         onChange={handleChange}
                         name='email'
+                        required
                     />
                 </div>
             </div>
@@ -28,6 +30,7 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
                         value={client.firstname}
                         onChange={handleChange}
                         name='firstname'
+                        required
                     />
                 </div>
                 <div className='form-group col-md-6'>
@@ -40,6 +43,7 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
                         value={client.lastname}
                         onChange={handleChange}
                         name='lastname'
+                        required
                     />
                 </div>
             </div>
@@ -105,6 +109,15 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
             <button type='submit' className='btn btn-primary'>
                 Submit
             </button>
+            {!client.email ? (
+                <Link to={`/api/clients`} className='btn btn-link'>
+                    Cancel
+                </Link>
+            ) : (
+                <Link to={`/api/clients/${client.email}`} className='btn btn-link'>
+                    Cancel
+                </Link>
+            )}
         </form>
     );
 };

@@ -44,7 +44,6 @@ const ClientCreate = () => {
         setCreatedId(data._id);
       })
       .catch(() => {
-        
         setError(true);
       });
   };
@@ -54,13 +53,12 @@ const ClientCreate = () => {
   }
   return (
     <>
-      
-   
       <ClientForm
         client={client}
         handleChange={handleChange}
         handleSubmit={handleSubmit}
       />
+      
     </>
   );
 };

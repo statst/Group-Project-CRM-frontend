@@ -70,7 +70,7 @@ function Clients(props) {
     }
 
     if (clients.length === 0) {
-        return <div>Loading...</div>;
+        return <div>Loading...123</div>;
     }
 
     return (
@@ -127,7 +127,7 @@ function Clients(props) {
             />
         </Paper>
 
-       <Link to='/api/clients/create' className='btn btn-primary'>
+       <Link to='/api/clients/create' className='btn btn-primary mt-5'>
            Add Client
        </Link>
         </>
