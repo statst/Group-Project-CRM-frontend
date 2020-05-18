@@ -7,17 +7,14 @@ const UserEdit = ({ match }) => {
 	const [user, setUser] = useState(null);
 	const [createdId, setCreatedId] = useState(null);
 	const [error, setError] = useState(false);
-
+	  const emailId = match.params.emailId;
 	useEffect(() => {
-		const url = `${APIURL}/users/${match.params.id}`;
+		const url = `${APIURL}/users/${emailId}`;
 		fetch(url)
 			.then((response) => response.json())
-			.then((data) => {
-				setUser({ firstname: data.firstname, lastname: data.lastname });
-			})
+			.then(setUser)
 			.catch(() => {
-				// Update the state if there was an error
-				// so we can give feedback to the user!
+	
 				setError(true);
 			});
 	}, []);
@@ -32,7 +29,7 @@ const UserEdit = ({ match }) => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const url = `${APIURL}/users/`;
+		const url = `${APIURL}/api/users/${emailId}`;
 
 		fetch(url, {
 			method: 'PUT',
@@ -46,27 +43,21 @@ const UserEdit = ({ match }) => {
 				setCreatedId(data._id);
 			})
 			.catch(() => {
-				// Update the state if there was an error
-				// so we can give feedback to the user!
 				setError(true);
 			});
 	};
 
 	if (createdId) {
-		return <Redirect to={`/users/${createdId}`} />;
+		return <Redirect to={`/api/users/${emailId}`} />;
 	}
 	return (
-		<>
-			<h3>Create a User</h3>
-			{error && <p>Something went wrong... Please try again!</p>}
-			{user && (
-				<UserForm
-					user={user}
-					handleChange={handleChange}
-					handleSubmit={handleSubmit}
-				/>
-			)}
-		</>
+		<div>
+			<UserForm
+				user={user}
+				handleChange={handleChange}
+				handleSubmit={handleSubmit}
+			/>
+		</div>
 	);
 };
 

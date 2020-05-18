@@ -18,21 +18,22 @@ import ClientCreate from './components/Client/ClientCreate';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 const App = () => (
-    <div>
-        <NavBar />
-        <main>
-            <Route exact path='/users' component={Users} />
-            <Route exact path='/users/create' component={UserCreate} />
-            <Route exact path='/api/clients' component={Clients} />
-            <Route exact path='/api/clients/:emailId' component={ClientDetails} />
+	<div>
+		<NavBar />
+		<main>
+			<Route exact path='/api/users' component={Users} />
+			<Route exact path='/api/users/create' component={UserCreate} />
 
-            <Route exact path='/api/clients/:emailId/edit' component={ClientEdit} />
-            <Route exact path='/api/clients/create' component={ClientCreate} />
-            <Route exact path='/signup' component={SignUp} />
-            <Route exact path='/signin' component={SignIn} />
-            {/* <Route exact path='/users/:id/edit' component={UserEdit} /> */}
-        </main>
-    </div>
+			<Route exact path='/api/users/:emailId/edit' component={UserEdit} />
+			<Route exact path='/api/clients' component={Clients} />
+			<Route exact path='/api/clients/:emailId' component={ClientDetails} />
+
+			<Route exact path='/api/clients/:emailId/edit' component={ClientEdit} />
+			<Route exact path='/api/clients/create' component={ClientCreate} />
+			<Route exact path='/signup' component={SignUp} />
+			<Route exact path='/signin' component={SignIn} />
+		</main>
+	</div>
 );
 
 // class App extends Component {

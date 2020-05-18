@@ -24,7 +24,7 @@ const UserCreate = () => {
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const url = `${APIURL}/users/`;
+		const url = `${APIURL}/api/users`;
 
 		fetch(url, {
 			method: 'POST',
@@ -39,19 +39,15 @@ const UserCreate = () => {
 				setCreatedId(data._id);
 			})
 			.catch(() => {
-				// Update the state if there was an error
-				// so we can give feedback to the user!
 				setError(true);
 			});
 	};
 
 	if (createdId) {
-		return <Redirect to={`/users/${createdId}`} />;
+		return <Redirect to={`/api/users`} />;
 	}
 	return (
 		<>
-			<h3>Create a User</h3>
-			{error && <p>Something went wrong... Please try again!</p>}
 			<UserForm
 				user={user}
 				handleChange={handleChange}
