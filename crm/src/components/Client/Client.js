@@ -74,6 +74,7 @@ function Clients(props) {
     }
 
     return (
+        <>
         <Paper className={classes.root}>
             <TableContainer className={classes.container}>
                 <Table stickyHeader aria-label='sticky table'>
@@ -97,7 +98,10 @@ function Clients(props) {
                                                 {column.format && typeof value === 'number' ? (
                                                     column.format(value)
                                                 ) : column.id === 'action' ? (
-                                                    <Link to={`/clients/${client.email}`} className='btn btn-primary'>
+                                                    <Link
+                                                        to={`/api/clients/${client.email}`}
+                                                        className='btn btn-primary'
+                                                    >
                                                         View Details
                                                     </Link>
                                                 ) : (
@@ -122,6 +126,11 @@ function Clients(props) {
                 onChangeRowsPerPage={handleChangeRowsPerPage}
             />
         </Paper>
+
+       <Link to='/api/clients/create' className='btn btn-primary'>
+           Add Client
+       </Link>
+        </>
     );
 }
 

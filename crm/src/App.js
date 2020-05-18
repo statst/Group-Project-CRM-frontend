@@ -12,6 +12,8 @@ import SignUp from './components/Password/SignUp';
 import SignIn from './components/Password/SignIn';
 import Footer from './components/Footer/Footer';
 import ClientDetails from './components/Client/ClientDetails';
+import ClientEdit from './components/Client/ClientEdit';
+import ClientCreate from './components/Client/ClientCreate';
 
 import {BrowserRouter, Route} from 'react-router-dom';
 
@@ -21,8 +23,11 @@ const App = () => (
         <main>
             <Route exact path='/users' component={Users} />
             <Route exact path='/users/create' component={UserCreate} />
-            <Route exact path='/clients' component={Clients} />
-            <Route exact path='/clients/:emailId' component={ClientDetails} />
+            <Route exact path='/api/clients' component={Clients} />
+            <Route exact path='/api/clients/:emailId' component={ClientDetails} />
+
+            <Route exact path='/api/clients/:emailId/edit' component={ClientEdit} />
+            <Route exact path='/api/clients/create' component={ClientCreate} />
             <Route exact path='/signup' component={SignUp} />
             <Route exact path='/signin' component={SignIn} />
             {/* <Route exact path='/users/:id/edit' component={UserEdit} /> */}
