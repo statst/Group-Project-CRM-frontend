@@ -11,8 +11,8 @@ function NavBar() {
                 <Nav className='ml-auto'>
                     <Nav.Link href='/api/clients'>Client</Nav.Link>
                     <Nav.Link href='/api/users'>Users</Nav.Link>
-                    <Nav.Link href='/api/users/create'>Create Users</Nav.Link>
-                    <Nav.Link href='/api/users/:id/edit'>Edit User</Nav.Link>
+                    {/* <Nav.Link href='/api/users/create'>Create Users</Nav.Link>
+                    <Nav.Link href='/api/users/:id/edit'>Edit User</Nav.Link> */}
                     <Nav.Link href='/signup'>signUp</Nav.Link>
                     <Nav.Link href='/signin'>signIn</Nav.Link>
                 </Nav>
