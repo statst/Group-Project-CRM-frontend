@@ -28,9 +28,9 @@ const useStyles = makeStyles({
     }
 });
 
-function Users(props) {
+function Clients(props) {
     const classes = useStyles();
-    const [users, setUsers] = useState([]);
+    const [clients, setClients] = useState([]);
     const [error, setError] = useState(false);
 
     // Material UI
@@ -58,7 +58,7 @@ function Users(props) {
             .then((data) => {
                 console.log(data);
 
-                setUsers(data);
+                setClients(data);
             })
             .catch(() => {
                 setError(true);
@@ -69,7 +69,7 @@ function Users(props) {
         return <div>Sorry, there was a problem getting the users</div>;
     }
 
-    if (users.length === 0) {
+    if (clients.length === 0) {
         return <div>Loading...</div>;
     }
 
@@ -87,17 +87,17 @@ function Users(props) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {users.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((user) => {
+                        {clients.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((client) => {
                             return (
-                                <TableRow hover role='checkbox' tabIndex={-1} key={user._id}>
+                                <TableRow hover role='checkbox' tabIndex={-1} key={client._id}>
                                     {columns.map((column) => {
-                                        const value = user[column.id];
+                                        const value = client[column.id];
                                         return (
                                             <TableCell key={column.id} align={column.align}>
                                                 {column.format && typeof value === 'number' ? (
                                                     column.format(value)
                                                 ) : column.id === 'action' ? (
-                                                    <Link to={`/clients/${user.email}`} className='btn btn-primary'>
+                                                    <Link to={`/clients/${client.email}`} className='btn btn-primary'>
                                                         View Details
                                                     </Link>
                                                 ) : (
@@ -115,7 +115,7 @@ function Users(props) {
             <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
                 component='div'
-                count={users.length}
+                count={clients.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onChangePage={handleChangePage}
@@ -125,4 +125,4 @@ function Users(props) {
     );
 }
 
-export default Users;
+export default Clients;
