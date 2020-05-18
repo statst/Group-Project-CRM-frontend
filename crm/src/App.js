@@ -20,7 +20,7 @@ const App = () => (
         <NavBar />
         <main>
             <Route exact path='/users' component={Users} />
-            {/* <Route exact path='/users/create' component={UserCreate} /> */}
+            <Route exact path='/users/create' component={UserCreate} />
             <Route exact path='/clients' component={Clients} />
             <Route exact path='/clients/:emailId' component={ClientDetails} />
             <Route exact path='/signup' component={SignUp} />
