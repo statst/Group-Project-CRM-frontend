@@ -1,32 +1,47 @@
-import React, {useState, useEffect} from 'react';
-import {APIURL} from '../../config';
-import {Link, Redirect} from 'react-router-dom';
-import ClientForm from './UserForm';
+import React, { useState, useEffect } from 'react';
+import { APIURL } from '../../config';
+import { Link, Redirect } from 'react-router-dom';
+import UserForm from './UserForm';
 
-const UserDetails = ({match}) => {
-    const [user, setUser] = useState({});
+const UserDetails = ({ match }) => {
+     const [user, setUser] = useState(null);
     const [deleted, setDeleted] = useState(false);
-    const [createdId, setCreatedId] = useState(null);
+    // const [createdId, setCreatedId] = useState(null);
     const [error, setError] = useState(false);
     const emailId = match.params.emailId;
     // console.log(emailId);
 
     useEffect(() => {
         const url = `${APIURL}/api/users/${emailId}`;
-        fetch(url).then((response) => response.json()).then(setUser).catch(() => {
-            // Update the state if there was an error
-            // so we can give feedback to the user!
-            setError(true);
-        });
+       fetch(url, {
+					method: 'GET',
+					headers: {
+						Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzQ1YzIxNDc3ZDM2MDAxNzdkNDhiZCIsImlhdCI6MTU4OTkyOTEzOSwiZXhwIjoxNTg5OTY1MTM5fQ.MqDmg75AzeKXemCgW_qqrQ_alXLC_AUVw44ujm6xXX8`,
+					},
+				})
+					.then((response) => response.json())
+					.then(setUser)
+					.catch(() => {
+						// Update the state if there was an error
+						// so we can give feedback to the user!
+						setError(true);
+					});
     }, []);
 
     const onDeleteUser = (event) => {
         const url = `${APIURL}/api/users/${emailId}`;
-        fetch(url, {method: 'DELETE'})
-            .then((res) => {
-                setDeleted(true);
-            })
-            .catch(console.error);
+        fetch(url, {
+					method: 'DELETE',
+					headers: {
+						'Content-Type': 'application/json',
+						Accept: 'application/json',
+						'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzQ1YzIxNDc3ZDM2MDAxNzdkNDhiZCIsImlhdCI6MTU4OTkyOTEzOSwiZXhwIjoxNTg5OTY1MTM5fQ.MqDmg75AzeKXemCgW_qqrQ_alXLC_AUVw44ujm6xXX8`
+					},
+				})
+					.then((res) => {
+						setDeleted(true);
+					})
+					.catch(console.error);
     };
     // If we deleted the client, redirect back to the movies list
     if (deleted) {

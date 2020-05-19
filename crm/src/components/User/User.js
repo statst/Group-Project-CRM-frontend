@@ -46,24 +46,30 @@ function Users(props) {
 		setPage(0);
 	};
 
-	
 	useEffect(() => {
 		fetchMyApi();
+		// eslint-disable-next-line
 	}, []);
 
 	async function fetchMyApi() {
-		const url = `${APIURL}/api/users`;
-		await fetch(url)
-			.then((response) => response.json())
-			.then((data) => {
+		await fetch(`${APIURL}/api/users`, {
+			method: 'GET',
+			headers: {
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				'Authorization': `Bearer ${props.userToken}`
+			},
+		})
+		.then((response) => response.json()
+		.then((data) => {
 				console.log(data);
 
 				setUsers(data);
 			})
 			.catch(() => {
 				setError(true);
-			});
-	}
+			})
+		)}
 
 	if (error) {
 		return <div>Sorry, there was a problem getting the users</div>;
