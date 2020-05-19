@@ -12,6 +12,20 @@ class SignIn extends Component {
 			submit: false,
 		};
 	}
+	signIn = () => {
+		fetch('https://glacial-sands-49555.herokuapp.com/api/users/signin', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json; charset=utf-8',
+			},
+			body: JSON.stringify({
+						email: this.state.username,
+						password: this.state.password,
+					}),
+		}).then((res)=>res.json()).then((res)=>{console.log(res.token); this.props.setToken(res.token)})
+		
+		console.log(this.state.username, this.state.password);
+	}
 	handleChange = (event) => {
 		this.setState({ [event.target.name]: event.target.value });
 	};
@@ -46,13 +60,13 @@ class SignIn extends Component {
 						onChange={this.handleChange}
 					/>
 					<label htmlFor='password'>Password</label>
-					<button type='submit'>Sign In</button>
-					{this.state.submit && (
+					<button type='submit' onClick={this.signIn}>Sign In</button>
+					{/* {this.state.submit && (
 						<p className={this.state.value ? 'valid' : 'invalid'}>
 							{this.state.valid ? 'password matched' : 'password do not match'}
 						</p>
 					)}
-					{!this.state.submit}
+					{!this.state.submit} */}
 				</form>
 			</div>
 		);
