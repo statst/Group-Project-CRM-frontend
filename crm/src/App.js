@@ -19,50 +19,25 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import UserDetails from './components/User/UserDetails';
 
 const App = () => (
-    <div>
-        <NavBar />
-        <main>
-            <Route exact path='/api/users' component={Users} />
-            <Route exact path='/api/users/:emailId' component={UserDetails} />
-            <Route exact path='/api/users/create' component={UserCreate} />
+	<div>
+		<NavBar />
+		<main>
+			<Route exact path='/api/users' component={Users} />
+			<Route exact path='/api/users/:emailId' component={UserDetails} />
+			<Route exact path='/api/users/create' component={UserCreate} />
 
-            <Route exact path='/api/users/:emailId/edit' component={UserEdit} />
-            <Route exact path='/api/clients' component={Clients} />
-            <Route exact path='/api/clients/:emailId' component={ClientDetails} />
+			<Route exact path='/api/users/:emailId/edit' component={UserEdit} />
+			<Route exact path='/api/clients' component={Clients} />
+			<Route exact path='/api/clients/:emailId' component={ClientDetails} />
 
-            <Route exact path='/api/clients/:emailId/edit' component={ClientEdit} />
-            <Route exact path='/api/clients/create' component={ClientCreate} />
-            <Route exact path='/signup' component={SignUp} />
-            <Route exact path='/signin' component={SignIn} />
-            <Route exact path='/contact' component={ContactForm} />
-        </main>
-    </div>
+			<Route exact path='/api/clients/:emailId/edit' component={ClientEdit} />
+			<Route exact path='/api/clients/create' component={ClientCreate} />
+			<Route exact path='/signup' component={SignUp} />
+			<Route exact path='/signin' component={SignIn} />
+			<Route exact path='/contact' component={ContactForm} />
+		</main>
+		<Footer />
+	</div>
 );
-
-// class App extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             clients: clientsSeed,
-//             users: usersSeed
-//         };
-//     }
-
-//     render() {
-//         console.log(this.state.clients);
-//         console.log(this.state.users);
-//         return (
-//             <div>
-//                 <NavBar />
-//                 <main>
-//                     <Route exact path='/clients' render={() => <Clients clients={this.state.clients} />} />
-//                     <Route exact path='/users' render={() => <Users users={this.state.users} />} />
-//                     {/* <Clients clients={this.state.clients} /> */}
-//                     {/* <Users users={this.state.users} /> */}
-//                 </main>
-//             </div>
-//         );
-//     }
-// }
 
 export default App;

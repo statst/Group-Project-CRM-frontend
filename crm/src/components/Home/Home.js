@@ -3,8 +3,8 @@ import { Card, Button, CardDeck } from 'react-bootstrap';
 
 function Home(){
     <div>
-        
-    </div>
+		
+		</div>
 }
 
 export default Home;
