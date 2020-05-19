@@ -32,8 +32,11 @@ const ClientCreate = () => {
     const url = `${APIURL}/api/clients`;
 
     fetch(url, {
+       // mode: 'no-cors',
       method: 'POST',
       headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
         'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzNlOWYwZmNjZjFlMDAxN2MxOTk4NSIsImlhdCI6MTU4OTg5Nzc3MywiZXhwIjoxNTg5OTMzNzczfQ.eO9V9swgqnlogO4Wa5hz1fQwLNB-3f_OHuGhvuphYGY`
       },
       body: JSON.stringify(client)
@@ -41,7 +44,9 @@ const ClientCreate = () => {
       .then(response => response.json())
       
       .then(data => {
+        console.log( 'data',data)
         setCreatedId(data._id);
+        
       })
       .catch(() => {
         setError(true);

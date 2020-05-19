@@ -41,6 +41,8 @@ const ClientEdit = ({match}) => {
         fetch(url, {
             method: 'PUT',
             headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
                 Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzNlOWYwZmNjZjFlMDAxN2MxOTk4NSIsImlhdCI6MTU4OTg5Nzc3MywiZXhwIjoxNTg5OTMzNzczfQ.eO9V9swgqnlogO4Wa5hz1fQwLNB-3f_OHuGhvuphYGY`
             },
             body: JSON.stringify(client)
@@ -50,7 +52,7 @@ const ClientEdit = ({match}) => {
             // By setting updated to true, we use this value to
             // render a Redirect component from react-router-dom
             // and take the user back to the "show" route which will
-            // display the newly updated movie.
+            // display the newly updated client.
             .then((data) => {
                 setCreatedId(data._id);
             })
