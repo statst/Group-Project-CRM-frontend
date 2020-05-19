@@ -12,7 +12,13 @@ const ClientDetails = ({match}) => {
 
     useEffect(() => {
         const url = `${APIURL}/api/clients/${emailId}`;
-        fetch(url).then((response) => response.json()).then(setClient).catch(() => {
+        fetch(url, {
+            method: 'GET',
+      headers: {
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzNlOWYwZmNjZjFlMDAxN2MxOTk4NSIsImlhdCI6MTU4OTg5Nzc3MywiZXhwIjoxNTg5OTMzNzczfQ.eO9V9swgqnlogO4Wa5hz1fQwLNB-3f_OHuGhvuphYGY`
+      }
+    })
+    .then((response) => response.json()).then(setClient).catch(() => {
             // Update the state if there was an error
             // so we can give feedback to the user!
             setError(true);
@@ -50,6 +56,7 @@ const ClientDetails = ({match}) => {
             <p>Address:{client.address}</p>
             <p>City:{client.city}</p>
             <p>State:{client.state}</p>
+            <p>Zip:{client.zip}</p>
             <p>transactions:{client.transactions}</p>
 
             <div>

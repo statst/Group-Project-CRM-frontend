@@ -34,7 +34,7 @@ const ClientCreate = () => {
     fetch(url, {
       method: 'POST',
       headers: {
-        'Content-type': 'application/json; charset=UTF-8'
+        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzNlOWYwZmNjZjFlMDAxN2MxOTk4NSIsImlhdCI6MTU4OTg5Nzc3MywiZXhwIjoxNTg5OTMzNzczfQ.eO9V9swgqnlogO4Wa5hz1fQwLNB-3f_OHuGhvuphYGY`
       },
       body: JSON.stringify(client)
     })
