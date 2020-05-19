@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {APIURL} from '../../config';
+
 import {Link} from 'react-router-dom';
 
 import {makeStyles} from '@material-ui/core/styles';
@@ -58,7 +59,7 @@ function Clients(props) {
       headers: {
            'Content-Type': 'application/json',
         'Accept': 'application/json',
-        'Authorization': `Bearer ${props.userToken}`
+        'Authorization': `Bearer ${props.userToken}`,
       }
     })
             .then((response) => response.json())
