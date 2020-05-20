@@ -18,100 +18,117 @@ import ContactForm from './components/Form/ContactForm';
 import {Route} from 'react-router-dom';
 import UserDetails from './components/User/UserDetails';
 import Transactions from './components/Transactions/Transaction';
+import Communications from './components/Communications/Communications';
 
 const App = () => {
     const [token, setToken] = useState('');
     return (
-        <div>
-            <NavBar />
-            <main>
-                <Route
-                    exact
-                    path='/api/users'
-                    render={(props) => {
-                        return <Users userToken={token} />;
-                    }}
-                />
+			<div>
+				<NavBar />
+				<main>
+					<Route
+						exact
+						path='/api/users'
+						render={(props) => {
+							return <Users userToken={token} />;
+						}}
+					/>
 
-                <Route
-                    exact
-                    path='/api/clients'
-                    render={(props) => {
-                        return <Clients userToken={token} />;
-                    }}
-                />
-                <Route
-                    exact
-                    path='/api/users/create'
-                    render={(props) => {
-                        return <CreateUser userToken={token} />;
-                    }}
-                />
-                <Route
-                    exact
-                    path='/api/users/:emailId'
-                    render={(routerProps) => {
-                        return <UserDetails match={routerProps.match} userToken={token} />;
-                    }}
-                />
-                <Route
-                    exact
-                    path='/api/users/:emailId/edit'
-                    render={(routerProps) => {
-                        return <UpdateUser match={routerProps.match} userToken={token} />;
-                    }}
-                />
+					<Route
+						exact
+						path='/api/clients'
+						render={(props) => {
+							return <Clients userToken={token} />;
+						}}
+					/>
+					<Route
+						exact
+						path='/api/users/create'
+						render={(props) => {
+							return <CreateUser userToken={token} />;
+						}}
+					/>
+					<Route
+						exact
+						path='/api/users/:emailId'
+						render={(routerProps) => {
+							return (
+								<UserDetails match={routerProps.match} userToken={token} />
+							);
+						}}
+					/>
+					<Route
+						exact
+						path='/api/users/:emailId/edit'
+						render={(routerProps) => {
+							return <UpdateUser match={routerProps.match} userToken={token} />;
+						}}
+					/>
 
-                <Route
-                    exact
-                    path='/api/clients/:emailId'
-                    render={(routerProps) => {
-                        return <ClientDetails match={routerProps.match} userToken={token} />;
-                    }}
-                />
+					<Route
+						exact
+						path='/api/clients/:emailId'
+						render={(routerProps) => {
+							return (
+								<ClientDetails match={routerProps.match} userToken={token} />
+							);
+						}}
+					/>
 
-                <Route
-                    exact
-                    path='/api/clients/:emailId/edit'
-                    render={(routerProps) => {
-                        return <ClientEdit match={routerProps.match} userToken={token} />;
-                    }}
-                />
+					<Route
+						exact
+						path='/api/clients/:emailId/edit'
+						render={(routerProps) => {
+							return <ClientEdit match={routerProps.match} userToken={token} />;
+						}}
+					/>
 
-                <Route
-                    exact
-                    path='/api/clients/create'
-                    render={(props) => {
-                        return <ClientCreate userToken={token} />;
-                    }}
-                />
+					<Route
+						exact
+						path='/api/clients/create'
+						render={(props) => {
+							return <ClientCreate userToken={token} />;
+						}}
+					/>
 
-                <Route
-                    exact
-                    path='/api/clients/:emailId/transactions'
-                    render={(routerProps) => {
-                        return <Transactions match={routerProps.match} userToken={token} />;
-                    }}
-                />
+					<Route
+						exact
+						path='/api/clients/:emailId/transactions'
+						render={(routerProps) => {
+							return (
+								<Transactions match={routerProps.match} userToken={token} />
+							);
+						}}
+					/>
 
-                {/* <Route exact path='/api/clients' component={Clients} />
+					<Route
+						exact
+						path='/api/users/:emailId/communications'
+						render={(routerProps) => {
+							return (
+								<Communications match={routerProps.match} userToken={token} />
+							);
+						}}
+					/>
+
+					{/* <Route exact path='/api/clients' component={Clients} />
 				<Route exact path='/api/clients/:emailId' component={ClientDetails} />
 
 				<Route exact path='/api/clients/:emailId/edit' component={ClientEdit} />
 				<Route exact path='/api/clients/create' component={ClientCreate} /> */}
-                <Route exact path='/signup' component={SignUp} />
-                <Route
-                    exact
-                    path='/signin'
-                    render={(props) => {
-                        return <SignIn setToken={setToken} userToken={token} />;
-                    }}
-                />
-                <Route exact path='/contact' component={ContactForm} />
-            </main>
-            <Footer />
-        </div>
-    );
+					<Route exact path='/signup' component={SignUp} />
+					<Route
+						exact
+						path='/signin'
+						render={(props) => {
+							return <SignIn setToken={setToken} userToken={token} />;
+						}}
+					/>
+					<Route exact path='/contact' component={ContactForm} />
+				</main>
+				<Footer />
+			</div>
+		);
 };
 
 export default App;
