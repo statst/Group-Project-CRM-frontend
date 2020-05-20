@@ -51,7 +51,7 @@ const UserDetails = (props) => {
     }
 
     if (error) {
-        return <div>Sorry, there was a problem getting the movies</div>;
+        return <div>Sorry, there was a problem getting the users information</div>;
     }
    
 

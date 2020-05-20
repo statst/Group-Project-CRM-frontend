@@ -139,7 +139,9 @@ const App = () => {
 							);
 						}}
 					/>
-					<Route exact path='/signup' component={SignUp} />
+					<Route exact path='/signup' render = {(props)=>{
+						return <SignUp setToken={setToken} userToken={token}/>
+					}}/>
 					<Route
 						exact
 						path='/signin'
