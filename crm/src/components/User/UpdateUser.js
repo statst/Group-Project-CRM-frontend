@@ -3,16 +3,25 @@ import {Redirect} from 'react-router-dom';
 import {APIURL} from '../../config.js';
 import UserForm from './UserForm.js';
 
-const UserEdit = ({props, match}) => {
+const UserEdit = (props) => {
     const [user, setUser] = useState({});
     const [createdId, setCreatedId] = useState(null);
     const [error, setError] = useState(false);
-    const emailId = match.params.emailId;
+    const emailId = props.match.params.emailId;
     useEffect(() => {
         const url = `${APIURL}/api/users/${emailId}`;
-        fetch(url).then((response) => response.json()).then(setUser).catch(() => {
-            setError(true);
-        });
+          fetch(url, {
+						method: 'GET',
+						headers: {
+							mode: 'no-cors',
+							Authorization: `Bearer ${props.userToken}`,
+						},
+					})
+						.then((response) => response.json())
+						.then(setUser)
+						.catch(() => {
+							setError(true);
+						});
     }, []);
 
     const handleChange = (event) => {

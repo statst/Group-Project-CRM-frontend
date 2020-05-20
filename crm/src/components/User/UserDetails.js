@@ -3,12 +3,12 @@ import { APIURL } from '../../config';
 import { Link, Redirect } from 'react-router-dom';
 import UserForm from './UserForm';
 
-const UserDetails = ({ match }) => {
+const UserDetails = (props) => {
      const [user, setUser] = useState(null);
     const [deleted, setDeleted] = useState(false);
     // const [createdId, setCreatedId] = useState(null);
     const [error, setError] = useState(false);
-    const emailId = match.params.emailId;
+    const emailId = props.match.params.emailId;
     // console.log(emailId);
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const UserDetails = ({ match }) => {
        fetch(url, {
 					method: 'GET',
 					headers: {
-						Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzQ1YzIxNDc3ZDM2MDAxNzdkNDhiZCIsImlhdCI6MTU4OTkyOTEzOSwiZXhwIjoxNTg5OTY1MTM5fQ.MqDmg75AzeKXemCgW_qqrQ_alXLC_AUVw44ujm6xXX8`,
+						Authorization: `Bearer ${props.userToken}`,
 					},
 				})
 					.then((response) => response.json())
@@ -35,7 +35,7 @@ const UserDetails = ({ match }) => {
 					headers: {
 						'Content-Type': 'application/json',
 						Accept: 'application/json',
-						'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzQ1YzIxNDc3ZDM2MDAxNzdkNDhiZCIsImlhdCI6MTU4OTkyOTEzOSwiZXhwIjoxNTg5OTY1MTM5fQ.MqDmg75AzeKXemCgW_qqrQ_alXLC_AUVw44ujm6xXX8`
+						'Authorization': `Bearer ${props.userToken}`
 					},
 				})
 					.then((res) => {

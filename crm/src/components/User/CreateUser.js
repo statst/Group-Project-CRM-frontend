@@ -31,7 +31,7 @@ const UserCreate = (props) => {
 			headers: {
 				'Content-Type': 'application/json',
 				'Accept': 'application/json',
-				'Authorization': `Bearer ${props.userToken}`,
+				Authorization: `Bearer ${props.userToken}`,
 			},
 			body: JSON.stringify(user),
 		})

@@ -46,18 +46,18 @@ const App = () => {
                         return <CreateUser userToken={token} />;
                     }}
                 />
-                {/* <Route
+                <Route
 					exact
 					path='/api/users/:emailId'
-					render={(props) => {
-						return <UserDetails userToken={token} />;
+					render={(routerProps) => {
+						return <UserDetails match={routerProps.match} userToken={token} />;
 					}}
-				/> */}
+				/>
                 <Route
                     exact
                     path='/api/users/:emailId/edit'
-                    render={(props) => {
-                        return <UpdateUser userToken={token} />;
+                    render={(routerProps) => {
+                        return <UpdateUser match={routerProps.match} userToken={token} />;
                     }}
                 />
 
