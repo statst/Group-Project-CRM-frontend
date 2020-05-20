@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {APIURL} from '../../config';
 import {Link, Redirect} from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import Transactions from '../Transactions/Transaction';
 
 const ClientDetails = (props) => {
     const [client, setClient] = useState(null);
@@ -53,17 +55,34 @@ const ClientDetails = (props) => {
 
     return (
         <>
-        {!client ? '' : (<div>
-            <p>First Name :{client.firstname} </p>
-            <p>lastName : {client.lastname}</p>
-            <p>Email:{client.email}</p>
-            <p>Address:{client.address}</p>
-            <p>City:{client.city}</p>
-            <p>State:{client.state}</p>
-            <p>Zip:{client.zip}</p>
-            <p>transactions:{client.transactions}</p>
+        {!client ? '' : (
+        <div className='col-md ml-3 mt-3'>
+          
+          <Card style={{ width: '20rem' }}>
+  
+  <Card.Body>
+        <Card.Title>Welcome, {client.firstname}</Card.Title>
+    <Card.Text>
+           First Name: {client.firstname}
+    </Card.Text>
+    <Card.Text>Last Name: {client.lastname}</Card.Text>
+    <Card.Text>Email:{client.email}</Card.Text>
+    <Card.Text>Address:{client.address}</Card.Text>
+    <Card.Text>City:{client.city}</Card.Text>
+    <Card.Text> State:{client.state}</Card.Text>
+    <Card.Text>Zip:{client.zip}</Card.Text>
+    
+  </Card.Body>
+</Card>
 
-            <div>
+
+
+
+         
+
+       </div>)}
+        
+            <div className='col-md mt-5'>
                 <Link className='btn btn-info btn-md' to={`/api/clients/${emailId}/edit`}>
                     Edit
                 </Link>
@@ -75,7 +94,7 @@ const ClientDetails = (props) => {
                     Go Back
                 </Link>
             </div>
-        </div>)}
+            <Transactions emailId = {emailId} userToken={props.userToken}/>
         </>
     );
 };

@@ -3,9 +3,9 @@ import React, {useState} from 'react';
 import './App.css';
 import NavBar from './components/Navbar/Navbar';
 import Clients from './components/Client/Client';
-import clientsSeed from './Data/clientsSeed.json';
+
 import Users from './components/User/User';
-import usersSeed from './Data/usersSeed.json';
+
 import UpdateUser from './components/User/UpdateUser';
 import CreateUser from './components/User/CreateUser';
 import SignUp from './components/Password/SignUp';
@@ -15,8 +15,9 @@ import ClientDetails from './components/Client/ClientDetails';
 import ClientEdit from './components/Client/ClientEdit';
 import ClientCreate from './components/Client/ClientCreate';
 import ContactForm from './components/Form/ContactForm';
-import {BrowserRouter, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
 import UserDetails from './components/User/UserDetails';
+import Transactions from './components/Transactions/Transaction';
 
 const App = () => {
     const [token, setToken] = useState('');
@@ -47,12 +48,12 @@ const App = () => {
                     }}
                 />
                 <Route
-					exact
-					path='/api/users/:emailId'
-					render={(routerProps) => {
-						return <UserDetails match={routerProps.match} userToken={token} />;
-					}}
-				/>
+                    exact
+                    path='/api/users/:emailId'
+                    render={(routerProps) => {
+                        return <UserDetails match={routerProps.match} userToken={token} />;
+                    }}
+                />
                 <Route
                     exact
                     path='/api/users/:emailId/edit'
@@ -82,6 +83,14 @@ const App = () => {
                     path='/api/clients/create'
                     render={(props) => {
                         return <ClientCreate userToken={token} />;
+                    }}
+                />
+
+                <Route
+                    exact
+                    path='/api/clients/:emailId/transactions'
+                    render={(routerProps) => {
+                        return <Transactions match={routerProps.match} userToken={token} />;
                     }}
                 />
 

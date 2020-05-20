@@ -10,6 +10,7 @@ function NavBar() {
 				<Link to='/api/users'>Users</Link>
 				{/* <Link to='/api/users/:edit'>Users</Link> */}
 				<Link to='/signin'>signIn</Link>
+				<Link to='/signup'>signUp</Link>
 			</>
 		);
 }
