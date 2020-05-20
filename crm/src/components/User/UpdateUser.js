@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect} from 'react-router-dom';
 import {APIURL} from '../../config.js';
+import { Redirect } from 'react-router-dom';
 import UserForm from './UserForm.js';
 
 const UserEdit = (props) => {
@@ -13,13 +13,13 @@ const UserEdit = (props) => {
           fetch(url, {
 						method: 'GET',
 						headers: {
-							mode: 'no-cors',
+							// mode: 'no-cors',
 							Authorization: `Bearer ${props.userToken}`,
 						},
-					})
-						.then((response) => response.json())
-						.then(setUser)
-						.catch(() => {
+                    })
+                    .then((response) => response.json())
+                    .then(setUser)
+                    .catch(() => {
 							setError(true);
 						});
     }, []);
@@ -42,12 +42,12 @@ const UserEdit = (props) => {
 						Authorization: `Bearer ${props.userToken}`,
 					},
 					body: JSON.stringify(user),
-				})
-					.then((response) => response.json())
-					.then((data) => {
+                })
+                .then((response) => response.json())
+                .then((data) => {
 						setCreatedId(data._id);
-					})
-					.catch(() => {
+                    })
+                    .catch(() => {
 						setError(true);
 					});
     };

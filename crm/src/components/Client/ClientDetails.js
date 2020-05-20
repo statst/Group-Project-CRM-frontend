@@ -5,6 +5,7 @@ import Card from 'react-bootstrap/Card';
 import Transactions from '../Transactions/Transaction';
 import Communications from '../Communications/Communications';
 
+
 const ClientDetails = (props) => {
     const [client, setClient] = useState(null);
     const [deleted, setDeleted] = useState(false);

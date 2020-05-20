@@ -19,6 +19,8 @@ import {Route} from 'react-router-dom';
 import UserDetails from './components/User/UserDetails';
 import Transactions from './components/Transactions/Transaction';
 import Communications from './components/Communications/Communications';
+import UserCommunications from './components/Communications/UserCommunications';
+import UserTransactions from './components/Transactions/UserTransaction';
 import Dashboard from './components/DashBoard/Dashboard';
 import Features from './components/Home/Features';
 import Home from './components/Home/Home';
@@ -113,7 +115,30 @@ const App = () => {
 							);
 						}}
 					/>
-
+					<Route
+						exact
+						path='/api/users/:emailId/communications'
+						render={(routerProps) => {
+							return (
+								<UserCommunications
+									match={routerProps.match}
+									userToken={token}
+								/>
+							);
+						}}
+					/>
+					<Route
+						exact
+						path='/api/users/:emailId/transactions'
+						render={(routerProps) => {
+							return (
+								<UserTransactions
+									match={routerProps.match}
+									userToken={token}
+								/>
+							);
+						}}
+					/>
 					<Route exact path='/signup' component={SignUp} />
 					<Route
 						exact
