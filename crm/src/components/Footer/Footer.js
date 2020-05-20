@@ -16,7 +16,7 @@ const Footer = () => {
                     </MDBCol>
                     <MDBCol md='6'>
                         <p className='title-list'>
-                            Contact Us:
+                            Our Team:
                             <a href='https://www.linkedin.com/in/roryellis/'>Rory Ellis</a>
                             <a href=' https://www.linkedin.com/in/tuongknguyen/'>TK Nguyen</a>
                             <a href='https://www.linkedin.com/in/foolan-bhosale'>Foolan Bhosale</a>
