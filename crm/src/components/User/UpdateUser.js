@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {APIURL} from '../../config.js';
-import { Redirect } from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 import UserForm from './UserForm.js';
 
 const UserEdit = (props) => {
@@ -10,18 +10,20 @@ const UserEdit = (props) => {
     const emailId = props.match.params.emailId;
     useEffect(() => {
         const url = `${APIURL}/api/users/${emailId}`;
-          fetch(url, {
-						method: 'GET',
-						headers: {
-							// mode: 'no-cors',
-							Authorization: `Bearer ${props.userToken}`,
-						},
-                    })
-                    .then((response) => response.json())
-                    .then(setUser)
-                    .catch(() => {
-							setError(true);
-						});
+        fetch(url, {
+            method: 'GET',
+            headers: {
+                mode: 'no-cors',
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${props.userToken}`
+            }
+        })
+            .then((response) => response.json())
+            .then(setUser)
+            .catch(() => {
+                setError(true);
+            });
     }, []);
 
     const handleChange = (event) => {
@@ -37,19 +39,21 @@ const UserEdit = (props) => {
         const url = `${APIURL}/api/users/${emailId}`;
 
         fetch(url, {
-					method: 'PUT',
-					headers: {
-						Authorization: `Bearer ${props.userToken}`,
-					},
-					body: JSON.stringify(user),
-                })
-                .then((response) => response.json())
-                .then((data) => {
-						setCreatedId(data._id);
-                    })
-                    .catch(() => {
-						setError(true);
-					});
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+                Accept: 'application/json',
+                Authorization: `Bearer ${props.userToken}`
+            },
+            body: JSON.stringify(user)
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setCreatedId(data._id);
+            })
+            .catch(() => {
+                setError(true);
+            });
     };
 
     if (createdId) {

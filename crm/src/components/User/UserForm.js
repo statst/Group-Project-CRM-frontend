@@ -7,7 +7,6 @@ const UserForm = ({user, handleSubmit, handleChange}) => (
             <div className='form-group col-md-6'>
                 <label htmlFor='email'>First Name</label>
                 <input
-                    type='firstname'
                     className='form-control'
                     id='firstname'
                     placeholder='First Name'
@@ -20,7 +19,6 @@ const UserForm = ({user, handleSubmit, handleChange}) => (
             <div className='form-group col-md-6'>
                 <label htmlFor='Lastname'>Last Name</label>
                 <input
-                    type='lastname'
                     className='form-control'
                     id='lastname'
                     placeholder='Last Name'
