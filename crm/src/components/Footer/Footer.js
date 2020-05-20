@@ -10,8 +10,7 @@ const Footer = () => {
                     <MDBCol md='6'>
                         {/* <h5 className='title'>Powered by</h5> */}
                         <p className='text-copy'>
-                            &copy; {new Date().getFullYear()} Copyright: Rory Ellis, TK Nguyen, Foolan Bhosale & Jyoti
-                            Shinde
+                            &copy; {new Date().getFullYear()} Copyright: Rory Ellis, TK Nguyen, & Jyoti Shinde
                         </p>
                     </MDBCol>
                     <MDBCol md='6'>
@@ -19,7 +18,6 @@ const Footer = () => {
                             Our Team:
                             <a href='https://www.linkedin.com/in/roryellis/'>Rory Ellis</a>
                             <a href=' https://www.linkedin.com/in/tuongknguyen/'>TK Nguyen</a>
-                            <a href='https://www.linkedin.com/in/foolan-bhosale'>Foolan Bhosale</a>
                             <a href='https://www.linkedin.com/in/jyoti-shinde/'>Jyoti Shinde</a>
                         </p>
                     </MDBCol>
