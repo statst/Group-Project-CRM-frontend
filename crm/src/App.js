@@ -19,6 +19,7 @@ import {Route} from 'react-router-dom';
 import UserDetails from './components/User/UserDetails';
 import Transactions from './components/Transactions/Transaction';
 import Communications from './components/Communications/Communications';
+import Dashboard from './components/DashBoard/Dashboard';
 
 const App = () => {
     const [token, setToken] = useState('');
@@ -125,6 +126,7 @@ const App = () => {
 						}}
 					/>
 					<Route exact path='/contact' component={ContactForm} />
+					<Route exact path='/dashboard' component={Dashboard} />
 				</main>
 				<Footer />
 			</div>

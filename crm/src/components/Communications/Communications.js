@@ -4,7 +4,7 @@ import { APIURL } from '../../config';
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 
-function Transactions(props) {
+function Communications(props) {
 	const [communications, setCommunications] = useState([]);
 	const [error, setError] = useState(false);
 	console.log('props', props);
@@ -25,7 +25,7 @@ function Transactions(props) {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				setTransactions(data);
+				setCommunications(data);
 			})
 			.catch(() => {
 				setError(true);
@@ -42,7 +42,7 @@ function Transactions(props) {
 						<th>Body</th>
 					</tr>
 				</thead>
-				{transactions.map((trans) => (
+				{communications.map((trans) => (
 					<tbody key={trans._id}>
 						<tr>
 							<td>{trans._id}</td>

@@ -11,6 +11,8 @@ function NavBar() {
 				{/* <Link to='/api/users/:edit'>Users</Link> */}
 				<Link to='/signin'>signIn</Link>
 				<Link to='/signup'>signUp</Link>
+				<Link to='/contact'>Contact Us</Link>
+				<Link to='/dashboard'>Dashboard</Link>
 			</>
 		);
 }
