@@ -54,6 +54,7 @@ const ClientDetails = (props) => {
     // Display "Loading..." if not
 
     return (
+<<<<<<< HEAD
         <>
         {!client ? '' : (
         <div className='col-md ml-3 mt-3'>
@@ -97,6 +98,48 @@ const ClientDetails = (props) => {
             <Transactions emailId = {emailId} userToken={props.userToken}/>
         </>
     );
+=======
+			<>
+				{!client ? (
+					''
+				) : (
+					<div>
+						<p>First Name :{client.firstname} </p>
+						<p>lastName : {client.lastname}</p>
+						<p>Email:{client.email}</p>
+						<p>Address:{client.address}</p>
+						<p>City:{client.city}</p>
+						<p>State:{client.state}</p>
+						<p>Zip:{client.zip}</p>
+						<p>transactions:{client.transactions}</p>
+
+						<div>
+							<Link
+								className='btn btn-info btn-md'
+								to={`/api/clients/${emailId}/edit`}>
+								Edit
+							</Link>
+							<Link
+								className='btn btn-info btn-md'
+								to={`/api/clients/${emailId}/transactions`}>
+								transactions
+							</Link>
+							<button
+								className='btn btn-danger mr-3 ml-3'
+								onClick={onDeleteClient}>
+								Delete
+							</button>
+							<Link
+								className='btn btn-info btn-md margin-0'
+								to={`/api/clients`}>
+								Go Back
+							</Link>
+						</div>
+					</div>
+				)}
+			</>
+		);
+>>>>>>> created dashboard component, updated footer and contact form
 };
 
 export default ClientDetails;

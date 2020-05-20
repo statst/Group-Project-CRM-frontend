@@ -10,7 +10,13 @@ function NavBar() {
 				<Link to='/api/users'>Users</Link>
 				{/* <Link to='/api/users/:edit'>Users</Link> */}
 				<Link to='/signin'>signIn</Link>
+<<<<<<< HEAD
 				<Link to='/signup'>signUp</Link>
+=======
+				{/* <Link to='/api/users/:emailId/transactions'>transactions</Link> */}
+				<Link to='/contact'>ContactUS</Link>
+				<Link to='/dashboard'>Dashboard</Link>
+>>>>>>> created dashboard component, updated footer and contact form
 			</>
 		);
 }
