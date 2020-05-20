@@ -4,6 +4,7 @@ import {Link, Redirect} from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Transactions from '../Transactions/Transaction';
 import Communications from '../Communications/Communications';
+import NewTransaction from '../Transactions/NewTransaction';
 
 
 const ClientDetails = (props) => {
@@ -94,6 +95,7 @@ const ClientDetails = (props) => {
 					<strong>Transactions</strong>
 					<Transactions emailId={emailId} userToken={props.userToken} />
 				</div>
+                <Link className='btn btn-info btn-md' to={`/api/clients/${emailId}/newtransaction`}>New Transaction</Link>
 				<div>
 					<strong>Communications</strong>
 					<Communications emailId={emailId} userToken={props.userToken} />

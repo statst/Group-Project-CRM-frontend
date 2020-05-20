@@ -24,6 +24,7 @@ import UserTransactions from './components/Transactions/UserTransaction';
 import Dashboard from './components/DashBoard/Dashboard';
 import Features from './components/Home/Features';
 import Home from './components/Home/Home';
+import NewTransaction from './components/Transactions/NewTransaction';
 
 const App = () => {
     const [token, setToken] = useState('');
@@ -79,7 +80,13 @@ const App = () => {
 							);
 						}}
 					/>
-
+					<Route
+						exact
+						path='/api/clients/:emailId/newtransaction'
+						render={(routerProps) => {
+							return <NewTransaction match={routerProps.match} userToken={token} />;
+						}}
+					/>
 					<Route
 						exact
 						path='/api/clients/:emailId/edit'
@@ -132,10 +139,7 @@ const App = () => {
 						path='/api/users/:emailId/transactions'
 						render={(routerProps) => {
 							return (
-								<UserTransactions
-									match={routerProps.match}
-									userToken={token}
-								/>
+								<UserTransactions match={routerProps.match} userToken={token} />
 							);
 						}}
 					/>
