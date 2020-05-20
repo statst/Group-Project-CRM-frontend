@@ -5,7 +5,7 @@ import LineChart from './LineChart';
 
 class Dashboard extends React.Component {
 	state = {
-		dataPie: {
+		products: {
 			labels: ['Product1', 'Product2', 'Product3', 'Product4', 'Product 5'],
 			datasets: [
 				{
@@ -35,7 +35,7 @@ class Dashboard extends React.Component {
 		return (
 			<MDBContainer>
 				<h3 className='mt-5'>Pie chart for Products</h3>
-				<Pie data={this.state.dataPie} options={{ responsive: true }} />
+				<Pie data={this.state.products} options={{ responsive: true }} />
 				<LineChart />
 			</MDBContainer>
 		);

@@ -4,7 +4,7 @@ import { MDBContainer } from 'mdbreact';
 
 class LineChart extends React.Component {
 	state = {
-		dataLine: {
+		months: {
 			labels: [
 				'January',
 				'February',
@@ -66,7 +66,7 @@ class LineChart extends React.Component {
 		return (
 			<MDBContainer>
 				<h3 className='mt-5'>Sales Comparison</h3>
-				<Line data={this.state.dataLine} options={{ responsive: true }} />
+				<Line data={this.state.months} options={{ responsive: true }} />
 			</MDBContainer>
 		);
 	}
