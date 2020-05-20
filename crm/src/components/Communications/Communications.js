@@ -15,7 +15,7 @@ function Communications(props) {
 	}, []);
 
 	async function fetchMyApi() {
-		await fetch(`${APIURL}/api/users/${emailId}/communications`, {
+		await fetch(`${APIURL}/api/clients/${emailId}/communications`, {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
@@ -42,12 +42,12 @@ function Communications(props) {
 						<th>Body</th>
 					</tr>
 				</thead>
-				{communications.map((trans) => (
-					<tbody key={trans._id}>
+				{communications.map((communication) => (
+					<tbody key={communication._id}>
 						<tr>
-							<td>{trans._id}</td>
-							<td>{trans.subject}</td>
-							<td>{trans.body}</td>
+							<td>{communication._id}</td>
+							<td>{communication.subject}</td>
+							<td>{communication.body}</td>
 						</tr>
 					</tbody>
 				))}

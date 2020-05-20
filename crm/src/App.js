@@ -20,6 +20,8 @@ import UserDetails from './components/User/UserDetails';
 import Transactions from './components/Transactions/Transaction';
 import Communications from './components/Communications/Communications';
 import Dashboard from './components/DashBoard/Dashboard';
+import Features from './components/Home/Features';
+import Home from './components/Home/Home';
 
 const App = () => {
     const [token, setToken] = useState('');
@@ -104,7 +106,7 @@ const App = () => {
 
 					<Route
 						exact
-						path='/api/users/:emailId/communications'
+						path='/api/clients/:emailId/communications'
 						render={(routerProps) => {
 							return (
 								<Communications match={routerProps.match} userToken={token} />
@@ -112,11 +114,6 @@ const App = () => {
 						}}
 					/>
 
-					{/* <Route exact path='/api/clients' component={Clients} />
-				<Route exact path='/api/clients/:emailId' component={ClientDetails} />
-
-				<Route exact path='/api/clients/:emailId/edit' component={ClientEdit} />
-				<Route exact path='/api/clients/create' component={ClientCreate} /> */}
 					<Route exact path='/signup' component={SignUp} />
 					<Route
 						exact
@@ -127,8 +124,10 @@ const App = () => {
 					/>
 					<Route exact path='/contact' component={ContactForm} />
 					<Route exact path='/dashboard' component={Dashboard} />
+					<Route exact path='/features' component={Features} />
+					<Route exact path='/' component={Home} />
 				</main>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		);
 };

@@ -13,6 +13,8 @@ function NavBar() {
 				<Link to='/signup'>signUp</Link>
 				<Link to='/contact'>Contact Us</Link>
 				<Link to='/dashboard'>Dashboard</Link>
+				<Link to='/features'>Features</Link>
+				<Link to='/'>Home</Link>
 			</>
 		);
 }
