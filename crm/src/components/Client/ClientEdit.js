@@ -2,18 +2,18 @@ import React, {useState, useEffect} from 'react';
 import {APIURL} from '../../config';
 import {Redirect} from 'react-router-dom';
 import ClientForm from './ClientForm';
-const ClientEdit = ({match}) => {
+const ClientEdit = (props) => {
     const [client, setClient] = useState({});
     const [createdId, setCreatedId] = useState(null);
     const [error, setError] = useState(false);
-    const emailId = match.params.emailId;
+    const emailId = props.match.params.emailId;
 
     useEffect(() => {
         const url = `${APIURL}/api/clients/${emailId}`;
         fetch(url, {
             method: 'GET',
             headers: {
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzNlOWYwZmNjZjFlMDAxN2MxOTk4NSIsImlhdCI6MTU4OTg5Nzc3MywiZXhwIjoxNTg5OTMzNzczfQ.eO9V9swgqnlogO4Wa5hz1fQwLNB-3f_OHuGhvuphYGY`
+                Authorization: `Bearer ${props.userToken}`
             }
         })
             .then((response) => response.json())
@@ -41,9 +41,10 @@ const ClientEdit = ({match}) => {
         fetch(url, {
             method: 'PUT',
             headers: {
+                mode: 'no-cors',
                 'Content-Type': 'application/json',
                 Accept: 'application/json',
-                Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzNlOWYwZmNjZjFlMDAxN2MxOTk4NSIsImlhdCI6MTU4OTg5Nzc3MywiZXhwIjoxNTg5OTMzNzczfQ.eO9V9swgqnlogO4Wa5hz1fQwLNB-3f_OHuGhvuphYGY`
+                Authorization: `Bearer ${props.userToken}`
             },
             body: JSON.stringify(client)
         })

@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react';
 import {APIURL} from '../../config';
 import {Link, Redirect} from 'react-router-dom';
 
-const ClientDetails = ({match}) => {
+const ClientDetails = (props) => {
     const [client, setClient] = useState(null);
     const [deleted, setDeleted] = useState(false);
 
     const [error, setError] = useState(false);
-    const emailId = match.params.emailId;
+    console.log(props)
+    const emailId = props.match.params.emailId;
     // console.log(emailId);
 
     useEffect(() => {
@@ -15,7 +16,7 @@ const ClientDetails = ({match}) => {
         fetch(url, {
             method: 'GET',
       headers: {
-        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzNlOWYwZmNjZjFlMDAxN2MxOTk4NSIsImlhdCI6MTU4OTg5Nzc3MywiZXhwIjoxNTg5OTMzNzczfQ.eO9V9swgqnlogO4Wa5hz1fQwLNB-3f_OHuGhvuphYGY`
+                  'Authorization': `Bearer ${props.userToken}`,
       }
     })
     .then((response) => response.json()).then(setClient).catch(() => {
@@ -29,8 +30,8 @@ const ClientDetails = ({match}) => {
         const url = `${APIURL}/api/clients/${emailId}`;
         fetch(url, {method: 'DELETE',
         headers: {
-        'Authorization': `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlYzNlOWYwZmNjZjFlMDAxN2MxOTk4NSIsImlhdCI6MTU4OTg5Nzc3MywiZXhwIjoxNTg5OTMzNzczfQ.eO9V9swgqnlogO4Wa5hz1fQwLNB-3f_OHuGhvuphYGY`
-      }})
+        'Authorization': `Bearer ${props.userToken}`,
+        }})
             .then((res) => {
                 setDeleted(true);
             })
