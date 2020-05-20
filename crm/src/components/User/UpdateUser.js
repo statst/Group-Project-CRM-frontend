@@ -1,18 +1,27 @@
 import React, {useState, useEffect} from 'react';
-import {Redirect} from 'react-router-dom';
 import {APIURL} from '../../config.js';
+import { Redirect } from 'react-router-dom';
 import UserForm from './UserForm.js';
 
-const UserEdit = ({match}) => {
+const UserEdit = (props) => {
     const [user, setUser] = useState({});
     const [createdId, setCreatedId] = useState(null);
     const [error, setError] = useState(false);
-    const emailId = match.params.emailId;
+    const emailId = props.match.params.emailId;
     useEffect(() => {
         const url = `${APIURL}/api/users/${emailId}`;
-        fetch(url).then((response) => response.json()).then(setUser).catch(() => {
-            setError(true);
-        });
+          fetch(url, {
+						method: 'GET',
+						headers: {
+							// mode: 'no-cors',
+							Authorization: `Bearer ${props.userToken}`,
+						},
+                    })
+                    .then((response) => response.json())
+                    .then(setUser)
+                    .catch(() => {
+							setError(true);
+						});
     }, []);
 
     const handleChange = (event) => {
@@ -28,19 +37,19 @@ const UserEdit = ({match}) => {
         const url = `${APIURL}/api/users/${emailId}`;
 
         fetch(url, {
-            method: 'PUT',
-            headers: {
-                'Content-type': 'application/json; charset=UTF-8'
-            },
-            body: JSON.stringify(user)
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setCreatedId(data._id);
-            })
-            .catch(() => {
-                setError(true);
-            });
+					method: 'PUT',
+					headers: {
+						Authorization: `Bearer ${props.userToken}`,
+					},
+					body: JSON.stringify(user),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+						setCreatedId(data._id);
+                    })
+                    .catch(() => {
+						setError(true);
+					});
     };
 
     if (createdId) {

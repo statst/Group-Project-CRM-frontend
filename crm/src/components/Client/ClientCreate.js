@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { APIURL } from '../../config.js';
 import ClientForm from './ClientForm.js';
 
-const ClientCreate = () => {
+const ClientCreate = (props) => {
   const initialClientState = {
       firstname :'',
       lastname:'',
@@ -32,16 +32,21 @@ const ClientCreate = () => {
     const url = `${APIURL}/api/clients`;
 
     fetch(url, {
+       // mode: 'no-cors',
       method: 'POST',
       headers: {
-        'Content-type': 'application/json; charset=UTF-8'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        Authorization: `Bearer ${props.userToken}`
       },
       body: JSON.stringify(client)
     })
       .then(response => response.json())
       
       .then(data => {
+        console.log( 'data',data)
         setCreatedId(data._id);
+        
       })
       .catch(() => {
         setError(true);

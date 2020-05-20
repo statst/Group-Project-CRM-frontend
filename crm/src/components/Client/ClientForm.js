@@ -23,7 +23,6 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
                 <div className='form-group col-md-6'>
                     <label htmlFor='email'>First Name</label>
                     <input
-                        type='firstname'
                         className='form-control'
                         id='firstname'
                         placeholder='First Name'
@@ -36,7 +35,6 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
                 <div className='form-group col-md-6'>
                     <label htmlFor='Lastname'>Last Name</label>
                     <input
-                        type='lastname'
                         className='form-control'
                         id='lastname'
                         placeholder='Last Name'
@@ -50,7 +48,6 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
             <div className='form-group'>
                 <label htmlFor='inputAddress'>Address</label>
                 <input
-                    type='text'
                     className='form-control'
                     id='address'
                     placeholder='1234 Main St'
@@ -62,7 +59,6 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
             <div className='form-group'>
                 <label htmlFor='inputAddress2'>Address 2</label>
                 <input
-                    type='text'
                     className='form-control'
                     id='inputAddress2'
                     placeholder='Apartment, studio, or floor'
@@ -73,19 +69,11 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
             <div className='form-row'>
                 <div className='form-group col-md-4'>
                     <label htmlFor='inputCity'>City</label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        id='city'
-                        value={client.city}
-                        onChange={handleChange}
-                        name='city'
-                    />
+                    <input className='form-control' id='city' value={client.city} onChange={handleChange} name='city' />
                 </div>
                 <div className='form-group col-md-4'>
                     <label htmlFor='inputState'>State</label>
                     <input
-                        type='text'
                         className='form-control'
                         id='state'
                         value={client.state}
@@ -95,14 +83,7 @@ const ClientForm = ({client, handleSubmit, handleChange}) => {
                 </div>
                 <div className='form-group col-md-2'>
                     <label htmlFor='inputZip'>Zip</label>
-                    <input
-                        type='text'
-                        className='form-control'
-                        id='zip'
-                        value={client.zip}
-                        onChange={handleChange}
-                        name='zip'
-                    />
+                    <input className='form-control' id='zip' value={client.zip} onChange={handleChange} name='zip' />
                 </div>
             </div>
 

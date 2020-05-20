@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {APIURL} from '../../config';
+
 import {Link} from 'react-router-dom';
 
 import {makeStyles} from '@material-ui/core/styles';
@@ -49,15 +50,21 @@ function Clients(props) {
     // Fetch API
     useEffect(() => {
         fetchMyApi();
+        // eslint-disable-next-line
     }, []);
 
     async function fetchMyApi() {
-        const url = `${APIURL}/api/clients`;
-        await fetch(url)
+        await fetch(`${APIURL}/api/clients`,{
+         method: 'GET',
+      headers: {
+           'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `Bearer ${props.userToken}`,
+      }
+    })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
-
+                console.log('Result ' , data);
                 setClients(data);
             })
             .catch(() => {

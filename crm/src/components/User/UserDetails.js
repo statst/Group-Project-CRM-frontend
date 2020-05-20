@@ -1,32 +1,49 @@
-import React, {useState, useEffect} from 'react';
-import {APIURL} from '../../config';
-import {Link, Redirect} from 'react-router-dom';
-import ClientForm from './UserForm';
+import React, { useState, useEffect } from 'react';
+import { APIURL } from '../../config';
+import { Link, Redirect } from 'react-router-dom';
+import UserForm from './UserForm';
+import UserCommunications from '../Communications/UserCommunications';
+import UserTransactions from '../Transactions/UserTransaction';
 
-const UserDetails = ({match}) => {
-    const [user, setUser] = useState({});
+const UserDetails = (props) => {
+     const [user, setUser] = useState(null);
     const [deleted, setDeleted] = useState(false);
-    const [createdId, setCreatedId] = useState(null);
+    // const [createdId, setCreatedId] = useState(null);
     const [error, setError] = useState(false);
-    const emailId = match.params.emailId;
+    const emailId = props.match.params.emailId;
     // console.log(emailId);
 
     useEffect(() => {
         const url = `${APIURL}/api/users/${emailId}`;
-        fetch(url).then((response) => response.json()).then(setUser).catch(() => {
-            // Update the state if there was an error
-            // so we can give feedback to the user!
-            setError(true);
-        });
+       fetch(url, {
+					method: 'GET',
+					headers: {
+						Authorization: `Bearer ${props.userToken}`,
+					},
+				})
+					.then((response) => response.json())
+					.then(setUser)
+					.catch(() => {
+						// Update the state if there was an error
+						// so we can give feedback to the user!
+						setError(true);
+					});
     }, []);
 
     const onDeleteUser = (event) => {
         const url = `${APIURL}/api/users/${emailId}`;
-        fetch(url, {method: 'DELETE'})
-            .then((res) => {
-                setDeleted(true);
-            })
-            .catch(console.error);
+        fetch(url, {
+					method: 'DELETE',
+					headers: {
+						'Content-Type': 'application/json',
+						Accept: 'application/json',
+						'Authorization': `Bearer ${props.userToken}`
+					},
+				})
+					.then((res) => {
+						setDeleted(true);
+					})
+					.catch(console.error);
     };
     // If we deleted the client, redirect back to the movies list
     if (deleted) {
@@ -39,26 +56,42 @@ const UserDetails = ({match}) => {
    
 
     return (
-        <>
-			  {!user ? '' :( <div>
-            <p>First Name :{user.firstname} </p>
-            <p>lastName : {user.lastname}</p>
-            <p>Email:{user.email}</p>
-            <div>
-                <Link className='btn btn-info btn-sm margin-0' to={`/api/users/${emailId}/edit`}>
-                    Edit
-                </Link>
+			<>
+				{!user ? (
+					''
+				) : (
+					<div>
+						<p>First Name :{user.firstname} </p>
+						<p>lastName : {user.lastname}</p>
+						<p>Email:{user.email}</p>
+						<div>
+							<Link
+								className='btn btn-info btn-sm margin-0'
+								to={`/api/users/${emailId}/edit`}>
+								Edit
+							</Link>
 
-                <button onClick={onDeleteUser} className='btn btn-danger mr-3 ml-3'>
-                    Delete
-                </button>
-                <Link className='btn btn-info btn-md margin-0' to={`/api/users`}>
-                    Go Back
-                </Link>
-            </div>
-        </div>)}
-		</>
-    );
+							<button
+								onClick={onDeleteUser}
+								className='btn btn-danger mr-3 ml-3'>
+								Delete
+							</button>
+							<Link className='btn btn-info btn-md margin-0' to={`/api/users`}>
+								Go Back
+							</Link>
+						</div>
+					</div>
+				)}
+				<div>
+					<strong>Communications</strong>
+					<UserCommunications emailId={emailId} userToken={props.userToken} />
+				</div>
+				<div>
+					<strong>Transactions</strong>
+					<UserTransactions emailId={emailId} userToken={props.userToken} />
+				</div>
+			</>
+		);
 };
 
 export default UserDetails;

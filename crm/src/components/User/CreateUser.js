@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { APIURL } from '../../config.js';
 import UserForm from './UserForm.js';
 
-const UserCreate = () => {
+const UserCreate = (props) => {
 	const initialUserState = {
 		firstname: '',
 		lastname: '',
@@ -29,7 +29,9 @@ const UserCreate = () => {
 		fetch(url, {
 			method: 'POST',
 			headers: {
-				'Content-type': 'application/json; charset=UTF-8',
+				'Content-Type': 'application/json',
+				'Accept': 'application/json',
+				Authorization: `Bearer ${props.userToken}`,
 			},
 			body: JSON.stringify(user),
 		})
