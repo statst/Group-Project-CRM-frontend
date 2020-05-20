@@ -41,8 +41,7 @@ const ClientEdit = (props) => {
         fetch(url, {
             method: 'PUT',
             headers: {
-                // mode: 'no-cors',
-                // 'Content-Type': 'application/json',
+                'Content-Type': 'application/json',
                 // Accept: 'application/json',
                 Authorization: `Bearer ${props.userToken}`
             },
