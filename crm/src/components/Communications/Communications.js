@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { APIURL } from '../../config';
-
-import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 
 function Communications(props) {
 	const [communications, setCommunications] = useState([]);
 	const [error, setError] = useState(false);
-	console.log('props', props);
 	const emailId = props.emailId;
 
 	useEffect(() => {
 		fetchMyApi();
+		//eslint-disable-next-line
 	}, []);
 
 	async function fetchMyApi() {

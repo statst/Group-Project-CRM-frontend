@@ -18,9 +18,7 @@ const ClientCreate = (props) => {
   const [error, setError] = useState(false);
 
   const handleChange = event => {
-  
     event.persist();
-  
     setClient({
       ...client,
       [event.target.name]: event.target.value
@@ -32,7 +30,6 @@ const ClientCreate = (props) => {
     const url = `${APIURL}/api/clients`;
 
     fetch(url, {
-       // mode: 'no-cors',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -44,7 +41,6 @@ const ClientCreate = (props) => {
       .then(response => response.json())
       
       .then(data => {
-        console.log( 'data',data)
         setCreatedId(data._id);
         
       })

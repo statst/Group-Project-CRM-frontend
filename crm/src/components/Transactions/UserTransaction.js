@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { APIURL } from '../../config';
-
-import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 
 function UserTransactions(props) {
 	const [transactions, setTransactions] = useState([]);
 	const [error, setError] = useState(false);
-	console.log('props', props);
 	const emailId = props.emailId;
 
 	useEffect(() => {
@@ -26,7 +23,6 @@ function UserTransactions(props) {
 		})
 			.then((response) => response.json())
 			.then((data) => {
-				console.log('Result ', data);
 				setTransactions(data);
 			})
 			.catch(() => {

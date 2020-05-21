@@ -3,14 +3,14 @@ import { Redirect } from 'react-router-dom';
 import { APIURL } from '../../config';
 import Select from 'react-dropdown-select';
 
-const NewTransaction = (props) => {
-	const initialTransactionState = {
+const NewCommunication = (props) => {
+	const initialCommunicationState = {
 		user: '',
 		client: '',
-		product: '',
-		price: '',
+		subject: '',
+		body: '',
 	};
-	const [transaction, setTransaction] = useState(initialTransactionState);
+	const [communication, setCommunication] = useState(initialCommunicationState);
 	const [createdId, setCreatedId] = useState(null);
 	const [client, setClient] = useState(null);
 	const [usersList, setUsersList] = useState([]);
@@ -27,18 +27,16 @@ const NewTransaction = (props) => {
 			.then((response) => response.json())
 			.then((data) => {
 				setClient(data);
-				setTransaction({
+				setCommunication({
 					user: '',
 					client: `${data._id}`,
-					product: '',
-					price: '',
+					subject: '',
+					body: '',
 				});
 			})
 			.catch((error) => console.error);
 		// eslint-disable-next-line
-    }, []);
-    
-    
+	}, []);
 
 	useEffect(() => {
 		const url = `${APIURL}/api/users`;
@@ -56,17 +54,17 @@ const NewTransaction = (props) => {
 		// eslint-disable-next-line
 	}, []);
 	const handleUserChange = (value) => {
-		setTransaction({
+		setCommunication({
 			user: value[0]._id,
-			client: `${transaction.client}`,
-			product: `${transaction.product}`,
-			price: `${transaction.price}`,
+			client: `${communication.client}`,
+			subject: `${communication.subject}`,
+			body: `${communication.body}`,
 		});
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		const url = `${APIURL}/api/transactions`;
+		const url = `${APIURL}/api/communications`;
 
 		fetch(url, {
 			method: 'POST',
@@ -74,7 +72,7 @@ const NewTransaction = (props) => {
 				'Content-Type': 'application/json',
 				Authorization: `Bearer ${props.userToken}`,
 			},
-			body: JSON.stringify(transaction),
+			body: JSON.stringify(communication),
 		})
 			.then((response) => response.json())
 			.then((data) => {
@@ -85,8 +83,8 @@ const NewTransaction = (props) => {
 
 	const handleChange = (event) => {
 		event.persist();
-		setTransaction({
-			...transaction,
+		setCommunication({
+			...communication,
 			[event.target.name]: event.target.value,
 		});
 	};
@@ -122,21 +120,21 @@ const NewTransaction = (props) => {
 					<input
 						type='text'
 						className='form-control'
-						id='product'
-						placeholder='Product Name'
-						value={transaction.product}
+						id='subject'
+						placeholder='Subject'
+						value={communication.subject}
 						onChange={handleChange}
-						name='product'
+						name='subject'
 						required
 					/>
 					<input
 						type='text'
 						className='form-control'
-						id='price'
-						placeholder='Price'
-						value={transaction.price}
+						id='body'
+						placeholder='Message Body'
+						value={communication.body}
 						onChange={handleChange}
-						name='price'
+						name='body'
 						required
 					/>
 					<button type='submit' className='btn btn-primary'>
@@ -148,4 +146,4 @@ const NewTransaction = (props) => {
 	);
 };
 
-export default NewTransaction;
+export default NewCommunication;
