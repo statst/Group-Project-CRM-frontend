@@ -4,6 +4,9 @@ import { Link, Redirect } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Transactions from '../Transactions/Transaction';
 import Communications from '../Communications/Communications';
+import Divider from '@material-ui/core/Divider';
+import './Client.css';
+
 
 const ClientDetails = (props) => {
 	const [client, setClient] = useState(null);
@@ -60,11 +63,13 @@ const ClientDetails = (props) => {
 			{!client ? (
 				''
 			) : (
-				<div className='col-md ml-3 mt-3'>
-					<Card style={{ width: '20rem' }}>
+				<div className='col-md ml-3 mt-3 main'>
+				
+					<Card style={{ width: '20rem' }} >
 						<Card.Body>
-							<Card.Title>Welcome, {client.firstname}</Card.Title>
-							<Card.Text>First Name: {client.firstname}</Card.Text>
+							<i className="far fa-address-card fa-3x"></i>
+							{/* <Card.Title>Welcome, {client.firstname}</Card.Title> */}
+							<Card.Text><strong>First Name:</strong> {client.firstname}</Card.Text>
 							<Card.Text>Last Name: {client.lastname}</Card.Text>
 							<Card.Text>Email:{client.email}</Card.Text>
 							<Card.Text>Address:{client.address}</Card.Text>
@@ -76,35 +81,37 @@ const ClientDetails = (props) => {
 				</div>
 			)}
 
-			<div className='col-md mt-5'>
+			<div className='mt-5 link'>
 				<Link
-					className='btn btn-info btn-md'
+					className='btn btn-info item'
 					to={`/api/clients/${emailId}/edit`}>
 					Edit
 				</Link>
 
-				<button className='btn btn-danger mr-3 ml-3' onClick={onDeleteClient}>
+				<button className='btn btn-danger item' onClick={onDeleteClient}>
 					Delete
 				</button>
-				<Link className='btn btn-info btn-md margin-0' to={`/api/clients`}>
+				<Link className='btn btn-info item' to={`/api/clients`}>
 					Go Back
 				</Link>
 			</div>
-			<div>
-				<strong>Transactions</strong>
+			<div className='trans'>
+				<h3 className='sub-heading'><strong>Transactions  <i className="far fa-credit-card"></i></strong></h3>
+				  <Divider />
 				<Transactions emailId={emailId} userToken={props.userToken} />
 			</div>
 			<Link
-				className='btn btn-info btn-md'
+				className='btn btn-info btn-md mt-5'
 				to={`/api/clients/${emailId}/newtransaction`}>
 				New Transaction
 			</Link>
-			<div>
-				<strong>Communications</strong>
+			<div className='communication'>
+			 <h3 className='sub-heading'>	<strong>Communications  <i className="fas fa-tty"></i></strong></h3>
+			  <Divider />
 				<Communications emailId={emailId} userToken={props.userToken} />
 			</div>
 			<Link
-				className='btn btn-info btn-md'
+				className='btn btn-info btn-md mt-5'
 				to={`/api/clients/${emailId}/newcommunication`}>
 				New Communication
 			</Link>
