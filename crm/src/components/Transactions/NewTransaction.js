@@ -34,9 +34,12 @@ const NewTransaction = (props) => {
 				});
 			})
 			.then()
-			.catch((error) => console.error);
+            .catch((error) => console.error);
+            
 		// eslint-disable-next-line
-	}, []);
+    }, []);
+    
+    
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
