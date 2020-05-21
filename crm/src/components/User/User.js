@@ -141,9 +141,7 @@ function Users(props) {
 				/>
 			</Paper>
 
-			<Link to='/api/users/create' className='btn btn-primary mt-5'>
-				Add User
-			</Link>
+			
 		</>
 	);
 }
