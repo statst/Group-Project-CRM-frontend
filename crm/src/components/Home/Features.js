@@ -20,7 +20,7 @@ import './Home.css';
 const Features = () => {
 	return (
 		<MDBContainer>
-			<h1 className='home-container'>Our Product Features</h1>
+			<h1 className='home-container'>Product Features</h1>
 			{/* <p className='para-container'>
 				Improve your business process with essential CRM
 			</p> */}
@@ -41,7 +41,8 @@ const Features = () => {
 								Customer Relationship Management
 							</h3>
 							<p className='text-list'>
-								CRM helps to build a better customer relationship
+								Business is about the connections you build. Easy access to
+								information makes building them easier.
 							</p>
 						</MDBCarouselCaption>
 					</MDBCarouselItem>
@@ -55,13 +56,10 @@ const Features = () => {
 							<MDBMask overlay='black-strong' />
 						</MDBView>
 						<MDBCarouselCaption>
-							<h3 className='h3-responsive'>
-								Better customer Knowledge,segmentation and customer retention
-							</h3>
+							<h3 className='h3-responsive'>Single Source of Truth</h3>
 							<p className='text-list'>
-								CRM allows you to segment data into different categories making
-								it easy to create focused lists which helps to analyse sales
-								process and lead pool.
+								If client communications drive your revenue, tracking them in
+								the same place just makes sense.
 							</p>
 						</MDBCarouselCaption>
 					</MDBCarouselItem>
@@ -75,10 +73,10 @@ const Features = () => {
 							<MDBMask overlay='black-slight' />
 						</MDBView>
 						<MDBCarouselCaption>
-							<h3 className='h3-responsive'>Effective team collaboration</h3>
+							<h3 className='h3-responsive'>Team Sync</h3>
 							<p className='text-list'>
-								CRM helps you to manage all resources at a single pool resulting
-								into effective team collaboration and better customer service.
+								Universal access to client information across your team means
+								better support and a stronger customer experience.
 							</p>
 						</MDBCarouselCaption>
 					</MDBCarouselItem>
@@ -88,9 +86,10 @@ const Features = () => {
 							<MDBMask overlay='black-slight' />
 						</MDBView>
 						<MDBCarouselCaption>
-							<h3 className='h3-responsive'>Sales growth</h3>
+							<h3 className='h3-responsive'>Knowledge Driven Growth</h3>
 							<p className='text-list'>
-								CRM helps you to monitor and improve your sales.
+								The more you know, the more you grow. Customer interaction and
+								sales tracking highlights areas of opportunity.
 							</p>
 						</MDBCarouselCaption>
 					</MDBCarouselItem>

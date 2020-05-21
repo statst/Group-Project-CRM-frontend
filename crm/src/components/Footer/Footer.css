@@ -1,6 +1,5 @@
 .title-list{
 font-size: 20px;
-	padding: 10px 10px;
 	font-weight: bold;
 }
 a{
@@ -10,19 +9,37 @@ a{
 }
 .title{
 	font-size: 20px;
-	padding: 10px 10px;
 	font-weight: 400;
 }
 .text-copy
 {
 	font-size: 18px;
-	padding: 8px 8px;
 	font-weight: 400;
 }
 .text-center{
-	background-color: rgba(230, 248, 246, 0.3);
 	height: 80px;
+
 }
 .row{
 	padding: 20px 0px 0px 0px;
+}
+.font-small {
+	margin: 0 auto 20px;
+}
+@media only screen and (max-width: 400px) {
+.title-list{
+font-size: 18px;
+	font-weight: bold;
+}
+}
+@media only screen and (max-width: 767px) {
+.title-list{
+	font-size: 18px;
+	font-weight: bold;
+}
+.text-copy
+{
+	font-size: 18px;
+	font-weight: 400;
+}
 }

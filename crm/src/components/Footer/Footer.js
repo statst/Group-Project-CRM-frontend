@@ -8,7 +8,6 @@ const Footer = () => {
             <MDBContainer fluid className='text-center text-md-left'>
                 <MDBRow>
                     <MDBCol md='6'>
-                        {/* <h5 className='title'>Powered by</h5> */}
                         <p className='text-copy'>
                             &copy; {new Date().getFullYear()} Copyright: Rory Ellis, TK Nguyen, Foolan Bhosale & Jyoti
                             Shinde
