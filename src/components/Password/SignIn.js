@@ -59,7 +59,7 @@ class SignIn extends Component {
 
         return (
             <div className='form'>
-                <h1>Sign In</h1>
+                <h1 className= 'htext'>Sign In</h1>
                 <form onSubmit={this.checkPassword}>
                     <input
                         type='text'
