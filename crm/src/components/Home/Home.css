@@ -60,6 +60,10 @@
   font-size: 28px;
 }
 
+li{
+  font-weight: 500;
+}
+
 @media only screen and (max-width: 400px) {
   #apppage .animated img {
     max-height: 50vh;

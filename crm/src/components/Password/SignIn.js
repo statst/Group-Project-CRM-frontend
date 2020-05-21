@@ -59,7 +59,7 @@ class SignIn extends Component {
 
         return (
             <div className='form'>
-                <h1>Sign In</h1>
+                <h1 className ='text'>Sign In</h1>
                 <form onSubmit={this.checkPassword}>
                     <input
                         type='text'
@@ -80,10 +80,10 @@ class SignIn extends Component {
                         onChange={this.handleChange}
                     />
                     <label htmlFor='password'>Password</label>
-                    <Link to='/signup' className='btn btn-info'>
+                    <Link to='/signup' className='btn btn-info '>
                         Sign Up
                     </Link>
-                    <button type='submit' onClick={this.signIn}>
+                    <button type='submit' onClick={this.signIn} className ='btn btn-info '>
                         Sign In
                     </button>
                     {this.state.submit && (

@@ -53,12 +53,19 @@ class Home extends React.Component {
 										className='white-text text-center text-md-left mt-xl-5 mb-5'>
 										<MDBAnimation type='fadeInLeft' delay='.3s'>
 											<h1 className='h1-responsive font-weight-bold mt-sm-5'>
-												Customer Realtionship Management
+												Essential CRM
 											</h1>
 											<hr className='hr-light' />
 											<h6 className='mb-4'>
 												Improve your business process with essential CRM solution{' '}
+												{/* CRM software for every business */}
 											</h6>
+											<ul>
+												<li>Ease of use</li>
+												<li>Customization</li>
+												<li>Reporting</li>
+												<li>Automation and integrations</li>
+											</ul>
 										</MDBAnimation>
 									</MDBCol>
 
