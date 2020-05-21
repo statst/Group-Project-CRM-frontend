@@ -1,68 +1,86 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# EssentialCRM
 
-## Available Scripts
+##
+**_Project Description_**
 
-In the project directory, you can run:
+essentialCRM is a Customer Relationship Management tool designed to provide a simple, no frills way to keep track of communications and transactions with your clients. It will store User account information and Client contact information with communication and transaction records associated to both the purchasing client and the user responsible for the sale.
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+##
+**_Wireframes_**
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##
+**_Example_**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+This is what app looks like
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+##
+**_MVP_**
+##
+**_User Stories_**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* As a user, I would be able to search client and user details.
 
-## Learn More
+* As a user, I want to see listings of all clients based on search criteria.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* As a user, I want to be able to update client information.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* As a user, I want to be able to update user information.
 
-### Code Splitting
+* As a user, I want to be able to track customers.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+* As a user, I want to be able to track sales.
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+##
+**_Post MVP Stretch Goal_**
 
-### Making a Progressive Web App
+* As a user, I would like to display an analytics dashboard and and monitor all activities for sales and clients.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
+### Technologies Used
+- React
+- React bootstrap
+- React Router DOM
+- React Chart
+- Material UI
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Testing Technologies
+- Jest
+- Enzymes
 
-### Deployment
+##
+**_Installation Instructions_**
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+To set up app locally on your system: 
 
-### `yarn build` fails to minify
+* Install VsCode locally and ensure it is running.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+* Fork and clone this repository
+
+* Change into new directory and open file into VsCode
+
+* Install npm dependencies
+
+* Run the application with npm start
+
+##
+**_Contribute_**
+
+Source code: https://github.com/statst/Group-Project-CRM-frontend
+
+Find our services on: https://essentialcrm323.herokuapp.com/
+
+# Contributor Team
+- Foolan Bhosale - https://www.linkedin.com/in/foolan-bhosale
+- Jyoti Shinde - https://www.linkedin.com/in/jyoti-shinde/
+- TK Nguyen - https://www.linkedin.com/in/tuongknguyen/
+- Rory Ellis - https://www.linkedin.com/in/roryellis/
