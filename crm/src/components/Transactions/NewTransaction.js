@@ -34,13 +34,7 @@ const NewTransaction = (props) => {
 					price: '',
 				});
 			})
-<<<<<<< HEAD
-			.then()
-            .catch((error) => console.error);
-            
-=======
 			.catch((error) => console.error);
->>>>>>> tksolution
 		// eslint-disable-next-line
     }, []);
     

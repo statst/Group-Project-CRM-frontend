@@ -74,29 +74,6 @@ const App = () => {
                     }}
                 />
 
-<<<<<<< HEAD
-                <Route
-                    exact
-                    path='/api/clients/:emailId'
-                    render={(routerProps) => {
-                        return <ClientDetails match={routerProps.match} userToken={token} />;
-                    }}
-                />
-                <Route
-                    exact
-                    path='/api/clients/:emailId/newtransaction'
-                    render={(routerProps) => {
-                        return <NewTransaction match={routerProps.match} userToken={token} />;
-                    }}
-                />
-                <Route
-                    exact
-                    path='/api/clients/:emailId/edit'
-                    render={(routerProps) => {
-                        return <ClientEdit match={routerProps.match} userToken={token} />;
-                    }}
-                />
-=======
 					<Route
 						exact
 						path='/api/clients/:emailId'
@@ -122,7 +99,6 @@ const App = () => {
 							return <ClientEdit match={routerProps.match} userToken={token} />;
 						}}
 					/>
->>>>>>> tksolution
 
                 <Route
                     exact
@@ -132,53 +108,6 @@ const App = () => {
                     }}
                 />
 
-<<<<<<< HEAD
-                <Route
-                    exact
-                    path='/api/clients/:emailId/transactions'
-                    render={(routerProps) => {
-                        return <Transactions match={routerProps.match} userToken={token} />;
-                    }}
-                />
-
-                <Route
-                    exact
-                    path='/api/clients/:emailId/communications'
-                    render={(routerProps) => {
-                        return <Communications match={routerProps.match} userToken={token} />;
-                    }}
-                />
-                <Route
-                    exact
-                    path='/api/users/:emailId/communications'
-                    render={(routerProps) => {
-                        return <UserCommunications match={routerProps.match} userToken={token} />;
-                    }}
-                />
-                <Route
-                    exact
-                    path='/api/users/:emailId/transactions'
-                    render={(routerProps) => {
-                        return <UserTransactions match={routerProps.match} userToken={token} />;
-                    }}
-                />
-                <Route exact path='/signup' component={SignUp} />
-                <Route
-                    exact
-                    path='/signin'
-                    render={(props) => {
-                        return <SignIn setToken={setToken} userToken={token} />;
-                    }}
-                />
-                <Route exact path='/contact' component={ContactForm} />
-                <Route exact path='/dashboard' component={Dashboard} />
-                <Route exact path='/features' component={Features} />
-                <Route exact path='/' component={Home} />
-            </main>
-            {/* <Footer /> */}
-        </div>
-    );
-=======
 					<Route
 						exact
 						path='/api/clients/:emailId/transactions'
@@ -243,7 +172,6 @@ const App = () => {
 				{/* <Footer /> */}
 			</div>
 		);
->>>>>>> tksolution
 };
 
 export default App;

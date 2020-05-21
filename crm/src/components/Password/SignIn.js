@@ -1,13 +1,7 @@
-<<<<<<< HEAD
 import React, {Component} from 'react';
 import {APIURL} from '../../config';
 import {Redirect, Link} from 'react-router-dom';
 
-=======
-import React, { Component } from 'react';
-import { APIURL } from '../../config';
-import { Redirect } from 'react-router-dom';
->>>>>>> tksolution
 import './Password.css';
 
 class SignIn extends Component {
@@ -23,7 +17,6 @@ class SignIn extends Component {
         };
     }
 
-<<<<<<< HEAD
     signIn = () => {
         fetch(`${APIURL}/api/users/signin`, {
             method: 'POST',
@@ -44,25 +37,6 @@ class SignIn extends Component {
 
         console.log(this.state.username, this.state.password);
     };
-=======
-	signIn = () => {
-		fetch(`${APIURL}/api/users/signin`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json; charset=utf-8',
-			},
-			body: JSON.stringify({
-				email: this.state.username,
-				password: this.state.password,
-			}),
-		})
-			.then((res) => res.json())
-			.then((res) => {
-				this.props.setToken(res.token);
-				this.setState({ ...this.state, redirectToReferrer: true });
-			});
-	};
->>>>>>> tksolution
 
     handleChange = (event) => {
         this.setState({[event.target.name]: event.target.value});
@@ -78,17 +52,10 @@ class SignIn extends Component {
     render() {
         //Adding redirect code after sign in
 
-<<<<<<< HEAD
         const {redirectToReferrer} = this.state;
         if (redirectToReferrer) {
             return <Redirect to='/api/users' />;
         }
-=======
-		const { redirectToReferrer } = this.state;
-		if (redirectToReferrer) {
-			return <Redirect to='/api/clients' />;
-		}
->>>>>>> tksolution
 
         return (
             <div className='form'>
