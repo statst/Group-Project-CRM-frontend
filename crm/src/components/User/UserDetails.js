@@ -8,10 +8,8 @@ import UserTransactions from '../Transactions/UserTransaction';
 const UserDetails = (props) => {
      const [user, setUser] = useState(null);
     const [deleted, setDeleted] = useState(false);
-    // const [createdId, setCreatedId] = useState(null);
     const [error, setError] = useState(false);
     const emailId = props.match.params.emailId;
-    // console.log(emailId);
 
     useEffect(() => {
         const url = `${APIURL}/api/users/${emailId}`;
@@ -45,13 +43,13 @@ const UserDetails = (props) => {
 					})
 					.catch(console.error);
     };
-    // If we deleted the client, redirect back to the movies list
+    // If we deleted the client, redirect back to the user list
     if (deleted) {
         return <Redirect to='/api/users' />;
     }
 
     if (error) {
-        return <div>Sorry, there was a problem getting the movies</div>;
+        return <div>Sorry, there was a problem getting the users</div>;
     }
    
 

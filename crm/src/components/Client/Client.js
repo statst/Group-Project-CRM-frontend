@@ -64,7 +64,6 @@ function Clients(props) {
     })
             .then((response) => response.json())
             .then((data) => {
-                console.log('Result ' , data);
                 setClients(data);
             })
             .catch(() => {

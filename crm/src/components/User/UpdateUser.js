@@ -13,7 +13,6 @@ const UserEdit = (props) => {
         fetch(url, {
             method: 'GET',
             headers: {
-                // mode: 'no-cors',
                 Authorization: `Bearer ${props.userToken}`
             }
         })
@@ -22,6 +21,7 @@ const UserEdit = (props) => {
             .catch(() => {
                 setError(true);
             });
+        //eslint-disable-next-line
     }, []);
 
     const handleChange = (event) => {
@@ -39,9 +39,7 @@ const UserEdit = (props) => {
         fetch(url, {
             method: 'PUT',
             headers: {
-                // mode: 'no-cors',
                 'Content-Type': 'application/json',
-                // Accept: 'application/json',
                 Authorization: `Bearer ${props.userToken}`
             },
             body: JSON.stringify(user)

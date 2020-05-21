@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { APIURL } from '../../config';
 import { Redirect } from 'react-router-dom';
-
 import './Password.css';
 
 class SignIn extends Component {
@@ -30,12 +29,9 @@ class SignIn extends Component {
 		})
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res.token);
 				this.props.setToken(res.token);
 				this.setState({ ...this.state, redirectToReferrer: true });
 			});
-
-		console.log(this.state.username, this.state.password);
 	};
 
 	handleChange = (event) => {
@@ -54,7 +50,7 @@ class SignIn extends Component {
 
 		const { redirectToReferrer } = this.state;
 		if (redirectToReferrer) {
-			return <Redirect to='/api/users' />;
+			return <Redirect to='/api/clients' />;
 		}
 
 		return (
