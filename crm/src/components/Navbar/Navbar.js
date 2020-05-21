@@ -9,7 +9,7 @@ function NavBar({ userToken, handleSignOut }) {
 		<>
 
 <Navbar expand='lg'>
-            <Navbar.Brand href='/'>CRM</Navbar.Brand>
+            <Navbar.Brand href='/'>Essential CRM</Navbar.Brand>
             <Navbar.Toggle aria-controls='basic-navbar-nav' />
             <Navbar.Collapse id='basic-navbar-nav'>
                 <Nav className='ml-auto'>
