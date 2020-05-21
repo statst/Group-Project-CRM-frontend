@@ -60,7 +60,6 @@ class SignUp extends Component {
 						value={this.state.firstname}
 						onChange={this.handleChange}
 					/>
-					<label htmlFor='firstname'>First Name</label>
 					<input
 						type='text'
 						placeholder='Last Name'
@@ -69,7 +68,6 @@ class SignUp extends Component {
 						value={this.state.lastname}
 						onChange={this.handleChange}
 					/>
-					<label htmlFor='lastname'>Last Name</label>
 					<input
 						type='text'
 						placeholder='Email'
@@ -78,7 +76,6 @@ class SignUp extends Component {
 						value={this.state.email}
 						onChange={this.handleChange}
 					/>
-					<label htmlFor='lastname'>Email</label>
 
 					<input
 						type='password'
@@ -88,7 +85,6 @@ class SignUp extends Component {
 						value={this.state.password}
 						onChange={this.handleChange}
 					/>
-					<label htmlFor='password'>Password</label>
 					<button type='submit'>Sign Up</button>
 				</form>
 			</div>

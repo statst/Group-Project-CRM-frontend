@@ -69,8 +69,6 @@ class SignIn extends Component {
                         value={this.state.username}
                         onChange={this.handleChange}
                     />
-                    <label htmlFor='username'>Username</label>
-
                     <input
                         type='password'
                         placeholder='Password'
@@ -79,11 +77,10 @@ class SignIn extends Component {
                         value={this.state.password}
                         onChange={this.handleChange}
                     />
-                    <label htmlFor='password'>Password</label>
-                    <Link to='/signup' className='btn btn-info'>
+                    <Link to='/signup' className='button-text'>
                         Sign Up
                     </Link>
-                    <button type='submit' onClick={this.signIn}>
+                    <button type='submit' onClick={this.signIn} className= 'button'>
                         Sign In
                     </button>
                     {this.state.submit && (
