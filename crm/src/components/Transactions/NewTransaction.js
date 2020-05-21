@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { APIURL } from '../../config';
+import Select from 'react-dropdown-select';
 
 const NewTransaction = (props) => {
 	const initialTransactionState = {
@@ -12,10 +13,11 @@ const NewTransaction = (props) => {
 	const [transaction, setTransaction] = useState(initialTransactionState);
 	const [createdId, setCreatedId] = useState(null);
 	const [client, setClient] = useState(null);
+	const [user, setUser] = useState(null);
+	const [usersList, setUsersList] = useState([]);
 	const emailId = props.match.params.emailId;
 
 	useEffect(() => {
-		console.log('emailID: ', emailId);
 		const url = `${APIURL}/api/clients/${emailId}`;
 		fetch(url, {
 			method: 'GET',
@@ -25,6 +27,7 @@ const NewTransaction = (props) => {
 		})
 			.then((response) => response.json())
 			.then((data) => {
+				console.log(data);
 				setClient(data);
 				setTransaction({
 					user: '',
@@ -37,6 +40,33 @@ const NewTransaction = (props) => {
 			.catch((error) => console.error);
 		// eslint-disable-next-line
 	}, []);
+
+	useEffect(() => {
+		const url = `${APIURL}/api/users`;
+		fetch(url, {
+			method: 'GET',
+			headers: {
+				Authorization: `Bearer ${props.userToken}`,
+			},
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+
+				setUsersList(data);
+			})
+			.then()
+			.catch((error) => console.error);
+		// eslint-disable-next-line
+	}, []);
+	const handleUserChange = (value) => {
+		setTransaction({
+			user: value[0]._id,
+			client: `${transaction.client}`,
+			product: `${transaction.product}`,
+			price: `${transaction.price}`,
+		});
+	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
@@ -53,22 +83,21 @@ const NewTransaction = (props) => {
 			body: JSON.stringify(transaction),
 		})
 			.then((response) => response.json())
-
 			.then((data) => {
-				console.log('data', data);
+				console.log('data', data._id);
 				setCreatedId(data._id);
 			})
 			.catch((error) => console.error);
 	};
 
 	const handleChange = (event) => {
-		event.persist();
+		//event.persist();
 
 		setTransaction({
 			...transaction,
 			[event.target.name]: event.target.value,
 		});
-		console.log('transaction: ', transaction);
+		//console.log('transaction: ', transaction);
 	};
 
 	if (createdId) {
@@ -91,16 +120,13 @@ const NewTransaction = (props) => {
 						name='client'
 						required
 					/>
-
-					<input
-						type='text'
-						className='form-control'
-						id='userid'
-						placeholder='UserID'
-						value={transaction.user}
-						onChange={handleChange}
+					<Select
+						options={usersList}
+						value={[]}
+						labelField='email'
+						valueField='_id'
 						name='user'
-						// required
+						onChange={(value) => handleUserChange(value)}
 					/>
 					<input
 						type='text'
@@ -120,7 +146,7 @@ const NewTransaction = (props) => {
 						value={transaction.price}
 						onChange={handleChange}
 						name='price'
-						required
+						// required
 					/>
 					<button type='submit' className='btn btn-primary'>
 						Submit
