@@ -23,6 +23,7 @@ const ClientEdit = (props) => {
                 // so we can give feedback to the user!
                 setError(true);
             });
+            //eslint-disable-next-line
     }, []);
     const handleChange = (event) => {
         event.persist();
@@ -33,10 +34,8 @@ const ClientEdit = (props) => {
     };
 
     const handleSubmit = (event) => {
-        console.log(event);
         event.preventDefault();
         const url = `${APIURL}/api/clients/${emailId}`;
-        console.log(url);
 
         fetch(url, {
             method: 'PUT',
@@ -48,22 +47,14 @@ const ClientEdit = (props) => {
             body: JSON.stringify(client)
         })
             .then((response) => response.json())
-            // We're going to update state so there's a re-render
-            // By setting updated to true, we use this value to
-            // render a Redirect component from react-router-dom
-            // and take the user back to the "show" route which will
-            // display the newly updated client.
             .then((data) => {
                 setCreatedId(data._id);
             })
             .catch(() => {
-                // Update the state if there was an error
-                // so we can give feedback to the user!
                 setError(true);
             });
     };
     if (createdId) {
-        console.log(emailId);
         return <Redirect to={`/api/clients/${emailId}`} />;
     }
 

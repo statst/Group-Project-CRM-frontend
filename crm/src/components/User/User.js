@@ -56,20 +56,20 @@ function Users(props) {
 			method: 'GET',
 			headers: {
 				'Content-Type': 'application/json',
-				'Accept': 'application/json',
-				'Authorization': `Bearer ${props.userToken}`
+				Accept: 'application/json',
+				Authorization: `Bearer ${props.userToken}`,
 			},
-		})
-		.then((response) => response.json()
-		.then((data) => {
-				console.log(data);
-
-				setUsers(data);
-			})
-			.catch(() => {
-				setError(true);
-			})
-		)}
+		}).then((response) =>
+			response
+				.json()
+				.then((data) => {
+					setUsers(data);
+				})
+				.catch(() => {
+					setError(true);
+				})
+		);
+	}
 
 	if (error) {
 		return <div>Sorry, there was a problem getting the users</div>;
