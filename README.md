@@ -5,13 +5,15 @@
 
 essentialCRM is a Customer Relationship Management tool designed to provide a simple, no frills way to keep track of communications and transactions with your clients. It will store User account information and Client contact information with communication and transaction records associated to both the purchasing client and the user responsible for the sale.
 
+# Deployed Applications
+
+- Frontend - https://essentialcrm323.herokuapp.com/
+- Backend - https://glacial-sands-49555.herokuapp.com/
 
 ##
 **_Wireframes_**
 
 ![](src/Images/Snip20200521_2.png) 
-
-
 
 ##
 **_Example_**
@@ -59,7 +61,7 @@ This is what app looks like
 
 ## Testing Technologies
 - Jest
-- Enzymes
+- Enzyme
 
 ##
 **_Installation Instructions_**
@@ -76,12 +78,14 @@ To set up app locally on your system:
 
 * Run the application with npm start
 
+* You will also need a run a local instance of the EssentialCRM Backend API. You can find that application here. https://github.com/statst/Group-project-CRM-backened
+
 ##
 **_Contribute_**
 
 Source code: https://github.com/statst/Group-Project-CRM-frontend
 
-Find our services on: https://essentialcrm323.herokuapp.com/
+Find our application on: https://essentialcrm.herokuapp.com/
 
 # Contributor Team
 - Foolan Bhosale - https://www.linkedin.com/in/foolan-bhosale
