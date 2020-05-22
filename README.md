@@ -18,9 +18,9 @@ essentialCRM is a Customer Relationship Management tool designed to provide a si
 
 This is what app looks like
 
-![](/src/Images/Snip20200521_2.png) 
+![](/src/Images/Snip20200521_1.png) 
 
-![](Images/Snip20200521_4.png)
+![](src/Images/Snip20200521_4.png)
 
 ![](src/Images/Snip20200521_5.png)
 
