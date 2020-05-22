@@ -22,6 +22,8 @@ import business from '../../Images/businessman-3105871_1920.jpg';
 import { Link } from 'react-router-dom';
 import Featues from './Features';
 import Footer from '../Footer/Footer';
+
+// Hou comment: refactor to use functional components with hooks when you have time after the course
 class Home extends React.Component {
 	state = {
 		collapsed: false,

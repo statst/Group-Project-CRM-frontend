@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { APIURL } from '../../config';
 import './Password.css';
 
+// Hou comment: refactor to use functional components with hooks when you have time after the course
 class SignUp extends Component {
 	constructor(props) {
 		super(props);

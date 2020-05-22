@@ -1,4 +1,4 @@
-import React from 'react'; //npm install --save mdbreact
+import React from 'react';
 import {
 	MDBCarousel,
 	MDBCarouselCaption,
@@ -14,13 +14,13 @@ import customer from '../../Images/customers.jpg';
 import innovation from '../../Images/innovation-2057546_1920.jpg';
 import marketing from '../../Images/marketing.jpg';
 import collaboration from '../../Images/collaboration.jpg';
-// import sales from '../../Images/sales.jpg';
 import './Home.css';
 
 const Features = () => {
 	return (
 		<MDBContainer>
 			<h1 className='home-container'>Product Features</h1>
+			{/* Hou comment: make sure to delete any unused code from your codebase to keep it clean */}
 			{/* <p className='para-container'>
 				Improve your business process with essential CRM
 			</p> */}

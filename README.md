@@ -72,11 +72,17 @@ To set up app locally on your system:
 
 * Fork and clone this repository
 
-* Change into new directory and open file into VsCode
+* Change into new directory and open file in VsCode
 
-* Install npm dependencies
+* Install npm dependencies:
+```
+$ npm install
+```
 
 * Run the application with npm start
+```
+$ npm start
+```
 
 * You will also need a run a local instance of the EssentialCRM Backend API. You can find that application here. https://github.com/statst/Group-project-CRM-backened
 

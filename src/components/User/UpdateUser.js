@@ -44,13 +44,13 @@ const UserEdit = (props) => {
             },
             body: JSON.stringify(user)
         })
-            .then((response) => response.json())
-            .then((data) => {
-                setCreatedId(data._id);
-            })
-            .catch(() => {
-                setError(true);
-            });
+        .then((response) => response.json())
+        .then((data) => {
+            setCreatedId(data._id);
+        })
+        .catch(() => {
+            setError(true);
+        });
     };
 
     if (createdId) {

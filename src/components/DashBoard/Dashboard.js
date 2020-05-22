@@ -3,6 +3,8 @@ import { Pie } from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 import LineChart from './LineChart';
 
+// Hou comment: consider refactoring this class component to use a functional component with hooks, to be
+// consisten with the rest of the front-end.
 class Dashboard extends React.Component {
 	state = {
 		products: {

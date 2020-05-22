@@ -9,7 +9,7 @@ import Divider from '@material-ui/core/Divider';
 import './User.css';
 
 const UserDetails = (props) => {
-     const [user, setUser] = useState(null);
+    const [user, setUser] = useState(null);
     const [deleted, setDeleted] = useState(false);
     const [error, setError] = useState(false);
     const emailId = props.match.params.emailId;

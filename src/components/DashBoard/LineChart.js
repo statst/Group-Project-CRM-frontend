@@ -1,7 +1,10 @@
 import React from 'react';
+// Hou comment: I believe material-ui also allows you to create line charts
 import { Line } from 'react-chartjs-2';
 import { MDBContainer } from 'mdbreact';
 
+// Hou comment: consider refactoring this class component to use a functional component with hooks, to be
+// consisten with the rest of the front-end.
 class LineChart extends React.Component {
 	state = {
 		months: {

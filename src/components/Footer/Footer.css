@@ -1,7 +1,11 @@
+/* Hou comment: I'd encourage you all to look into using style-components for your next project! */
+
 .title-list{
 font-size: 20px;
 	font-weight: bold;
 }
+
+/* Hou comment: I'd try to avoid styling with tag selectors. Use class selectors instead. Read https://frontstuff.io/you-need-to-stop-targeting-tags-in-css */
 a{
 	font-size: 18px;
 	padding: 5px 5px;

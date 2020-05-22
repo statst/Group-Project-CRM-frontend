@@ -39,10 +39,10 @@ const ClientDetails = (props) => {
 				Authorization: `Bearer ${props.userToken}`,
 			},
 		})
-			.then((res) => {
-				setDeleted(true);
-			})
-			.catch(console.error);
+		.then((res) => {
+			setDeleted(true);
+		})
+		.catch(console.error);
 	};
 	// If we deleted the client, redirect back to the client list
 	if (deleted) {

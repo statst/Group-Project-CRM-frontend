@@ -4,6 +4,7 @@ import {Redirect, Link} from 'react-router-dom';
 
 import './Password.css';
 
+// Hou comment: refactor to use functional components with hooks when you have time after the course
 class SignIn extends Component {
     constructor(props) {
         super(props);
@@ -30,6 +31,7 @@ class SignIn extends Component {
         })
             .then((res) => res.json())
             .then((res) => {
+                // Hou comment: delete all console.log's from your codebase
                 console.log(res.token);
                 this.props.setToken(res.token);
                 this.setState({...this.state, redirectToReferrer: true});
@@ -47,6 +49,12 @@ class SignIn extends Component {
         this.state.password === this.state.passwordConfirm
             ? this.setState({valid: true, submit: true})
             : this.setState({valid: false, submit: true});
+
+        // // another way of expressing lines 48 - 50
+        // this.setState({
+        //     valid: this.state.password === this.state.passwordConfirm,
+        //     submit: true
+        // })
     };
 
     render() {

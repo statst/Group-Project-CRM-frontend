@@ -31,26 +31,24 @@ function UserTransactions(props) {
 	}
 
 	return (
-		<div>
-			<Table>
-				<thead>
+		<Table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>PRODUCT</th>
+					<th>PRICE</th>
+				</tr>
+			</thead>
+			{transactions.map((trans) => (
+				<tbody key={trans._id}>
 					<tr>
-						<th>ID</th>
-						<th>PRODUCT</th>
-						<th>PRICE</th>
+						<td>{trans._id}</td>
+						<td>{trans.product}</td>
+						<td>{trans.price}</td>
 					</tr>
-				</thead>
-				{transactions.map((trans) => (
-					<tbody key={trans._id}>
-						<tr>
-							<td>{trans._id}</td>
-							<td>{trans.product}</td>
-							<td>{trans.price}</td>
-						</tr>
-					</tbody>
-				))}
-			</Table>
-		</div>
+				</tbody>
+			))}
+		</Table>
 	);
 }
 

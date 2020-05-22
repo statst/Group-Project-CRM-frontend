@@ -31,26 +31,24 @@ function UserCommunications(props) {
 	}
 
 	return (
-		<div>
-			<Table>
-				<thead>
+		<Table>
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Subject</th>
+					<th>Body</th>
+				</tr>
+			</thead>
+			{communications.map((communication) => (
+				<tbody key={communication._id}>
 					<tr>
-						<th>ID</th>
-						<th>Subject</th>
-						<th>Body</th>
+						<td>{communication._id}</td>
+						<td>{communication.subject}</td>
+						<td>{communication.body}</td>
 					</tr>
-				</thead>
-				{communications.map((communication) => (
-					<tbody key={communication._id}>
-						<tr>
-							<td>{communication._id}</td>
-							<td>{communication.subject}</td>
-							<td>{communication.body}</td>
-						</tr>
-					</tbody>
-				))}
-			</Table>
-		</div>
+				</tbody>
+			))}
+		</Table>
 	);
 }
 

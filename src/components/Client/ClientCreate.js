@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { APIURL } from '../../config.js';
 import ClientForm from './ClientForm.js';
 
+// Hou comment: I'm noticing that this file uses a different kind of indentation. Somebody from the team should take some time to indent/format the codebase consistently
 const ClientCreate = (props) => {
   const initialClientState = {
       firstname :'',
@@ -18,7 +19,7 @@ const ClientCreate = (props) => {
   const [error, setError] = useState(false);
 
   const handleChange = event => {
-    event.persist();
+    event.persist(); // Hou comment: add a note here about why this is line necessary
     setClient({
       ...client,
       [event.target.name]: event.target.value
@@ -38,29 +39,24 @@ const ClientCreate = (props) => {
       },
       body: JSON.stringify(client)
     })
-      .then(response => response.json())
-      
-      .then(data => {
-        setCreatedId(data._id);
-        
-      })
-      .catch(() => {
-        setError(true);
-      });
+    .then(response => response.json())
+    .then(data => {
+      setCreatedId(data._id);
+    })
+    .catch(() => {
+      setError(true);
+    });
   };
 
   if (createdId) {
     return <Redirect to={`/api/clients`} />;
   }
   return (
-    <>
-      <ClientForm
-        client={client}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
-      
-    </>
+    <ClientForm
+      client={client}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+    />
   );
 };
 

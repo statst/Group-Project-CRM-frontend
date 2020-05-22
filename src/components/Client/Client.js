@@ -20,6 +20,7 @@ const columns = [
     {id: 'action', label: 'Action', minWidth: 100}
 ];
 
+/** Hou comment: Nice job incorporating material-ui into your project! */
 const useStyles = makeStyles({
     root: {
         width: '100%'
@@ -29,6 +30,12 @@ const useStyles = makeStyles({
     }
 });
 
+/**
+Hou comment: Nice job using hooks and functional components throughout your project! One comment
+here is to try to be consistent and use either the functional declaration syntax 
+(i.e., function YourComponent () {}) or the arrow syntax (i.e., const YourComponent = () {})
+throughout your codebase.
+*/
 function Clients(props) {
     const classes = useStyles();
     const [clients, setClients] = useState([]);
@@ -53,9 +60,11 @@ function Clients(props) {
         // eslint-disable-next-line
     }, []);
 
+    // Hou comment: Great job using the async/await pattern!
     async function fetchMyApi() {
         await fetch(`${APIURL}/api/clients`,{
          method: 'GET',
+        // Hou comment: looks like there's some formatting error with the indentation here
       headers: {
            'Content-Type': 'application/json',
         'Accept': 'application/json',

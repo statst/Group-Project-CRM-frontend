@@ -26,7 +26,7 @@ const ClientEdit = (props) => {
             //eslint-disable-next-line
     }, []);
     const handleChange = (event) => {
-        event.persist();
+        event.persist(); // Hou comment: add a line here to explain why this line is needed
         setClient({
             ...client,
             [event.target.name]: event.target.value
@@ -41,7 +41,6 @@ const ClientEdit = (props) => {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
-                // Accept: 'application/json',
                 Authorization: `Bearer ${props.userToken}`
             },
             body: JSON.stringify(client)
