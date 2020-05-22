@@ -100,7 +100,7 @@ const UserDetails = (props) => {
 				</div>
 			
 				<div className='communication'>
-					<h3 className='sub-heading'><strong>Communications<i className="fas fa-tty"></i></strong></h3>
+					<h3 className='sub-heading'><strong>Communications <i className="fas fa-tty"></i></strong></h3>
 					<Divider />
 					<UserCommunications emailId={emailId} userToken={props.userToken} />
 				</div>
