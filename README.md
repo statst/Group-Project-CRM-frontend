@@ -20,8 +20,8 @@ This is what app looks like
 
 ![](/src/Images/Snip20200521_1.png) 
 
-![](src/Images/Snip20200521_4.png)
 
+![](src/Images/Snip20200521_4.png)
 ![](src/Images/Snip20200521_5.png)
 
 
