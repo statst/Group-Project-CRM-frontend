@@ -56,7 +56,7 @@ This is what app looks like
 - React
 - React bootstrap
 - React Router DOM
-- React Chart
+- React Chart JS
 - Material UI
 
 ## Testing Technologies
